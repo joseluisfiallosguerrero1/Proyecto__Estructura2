@@ -68,8 +68,126 @@
           <Group type="102" attributes="0">
               <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Component id="B1" min="-2" pref="90" max="-2" attributes="0"/>
                   <Component id="A1" min="-2" pref="90" max="-2" attributes="0"/>
+=======
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="220" pref="220" max="-2" attributes="0"/>
+                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+                                      <Component id="A6" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="A3" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
+                                      <Component id="A5" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="A4" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                              <Component id="A8" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="A1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                              <Component id="A2" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="540" pref="540" max="-2" attributes="0"/>
+                              <Component id="A7" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="B1" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+                                      <Component id="B6" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                      <Component id="B4" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
+                                      <Component id="B5" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
+                                      <Component id="B7" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="B3" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="450" pref="450" max="-2" attributes="0"/>
+                                      <Component id="B8" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                              <Component id="B2" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="C1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                      <Component id="C2" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                                      <Component id="C5" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+                                      <Component id="C4" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="C3" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                      <Component id="C8" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="C7" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="450" pref="450" max="-2" attributes="0"/>
+                              <Component id="C6" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+>>>>>>> ca42e6c810c51baa7659e296f53404b4e260ec86
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="A2" min="-2" pref="90" max="-2" attributes="0"/>
@@ -253,6 +371,7 @@
                   <Component id="C8" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Component id="D1" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="D2" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="D3" min="-2" pref="80" max="-2" attributes="0"/>
@@ -302,6 +421,20 @@
                   <Component id="H7" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="H8" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
+=======
+                  <Component id="C5" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="C4" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="C3" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="C8" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="C7" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="C6" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                      <Component id="C1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="C2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="558" max="32767" attributes="0"/>
+>>>>>>> ca42e6c810c51baa7659e296f53404b4e260ec86
           </Group>
       </Group>
     </DimensionLayout>

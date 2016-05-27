@@ -14,8 +14,10 @@ public class Peon extends Pieza {
     public Peon() {
     }
 
-    public Peon(boolean Pieza) {
-        super(Pieza);
+    public Peon(boolean esblanca) {
+        super(esblanca);
     }
+
+    
     
 }
