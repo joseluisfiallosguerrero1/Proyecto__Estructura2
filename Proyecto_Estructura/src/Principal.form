@@ -143,22 +143,22 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
-                                      <Component id="C5" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="C1" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
-                                      <Component id="C3" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
                                       <Component id="C2" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                                      <Component id="C5" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
                                       <Component id="C4" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="C3" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
@@ -213,14 +213,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="C5" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="C4" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="C1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="C3" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="C2" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="C8" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="C7" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="C6" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                      <Component id="C1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="C2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+              <EmptySpace pref="558" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

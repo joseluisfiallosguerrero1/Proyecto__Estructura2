@@ -14,10 +14,13 @@ public class Rey extends Pieza {
     public Rey() {
     }
 
-    public Rey(boolean Pieza) {
-        super(Pieza);
+    public Rey(boolean esblanca) {
+        super(esblanca);
     }
     boolean validacion(){
         return true;
     }
+
+    
+    
 }

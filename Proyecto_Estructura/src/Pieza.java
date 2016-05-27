@@ -10,18 +10,27 @@
  * @author jose
  */
 public class Pieza {
-    boolean Pieza;
+    boolean esblanca;
 
     public Pieza() {
     }
 
     public Pieza(boolean Pieza) {
-        this.Pieza = Pieza;
+        this.esblanca = Pieza;
     }
 
     @Override
     public String toString() {
-        return "Pieza{" + "Pieza=" + Pieza + '}';
+        return "Pieza{" + "Pieza=" + esblanca + '}';
     }
+
+    public boolean isEsblanca() {
+        return esblanca;
+    }
+
+    public void setEsblanca(boolean esblanca) {
+        this.esblanca = esblanca;
+    }
+    
     
 }

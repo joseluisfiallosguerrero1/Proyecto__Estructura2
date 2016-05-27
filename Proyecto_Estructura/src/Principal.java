@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 
-
 import java.awt.Component;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +17,10 @@ public class Principal extends javax.swing.JFrame {
     javax.swing.JButton boton_universal = new javax.swing.JButton();
     Pieza[][] tablero = new Pieza[8][8];
     String nombre;
+    Pieza[] blancos = new Pieza[5];
+    Pieza[] negras = new Pieza[5];
+    int contador_blancas = 0;
+    int contador_negras = 0;
 
     public Principal() {
         initComponents();
@@ -355,19 +359,19 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(360, 360, 360)
-                                        .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(180, 180, 180)
-                                        .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(90, 90, 90)
                                         .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(360, 360, 360)
+                                        .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGap(270, 270, 270)
-                                        .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(180, 180, 180)
+                                        .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(80, 80, 80)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -408,13 +412,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(177, 177, 177))
+                    .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(558, Short.MAX_VALUE))
         );
 
         pack();
@@ -429,14 +434,29 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_A1MouseClicked
 
     private void ReyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReyActionPerformed
-        mover(1);
         int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
-            pos = posicion(nombre);
-            tablero[pos[0]][pos[1]] = new Rey(true);
+            Rey rey = new Rey(true);
+            if (metodo_validacion_blancas(rey)) {
+                pos = posicion(nombre);
+                tablero[pos[0]][pos[1]] = new Rey(true);
+                blancos[contador_blancas] = rey;
+                contador_blancas++;
+                mover(1);
+            } else {
+                   JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+            }
         } else {
-            pos = posicion(nombre);
-            tablero[pos[0]][pos[1]] = new Rey(false);
+            Rey rey = new Rey(false);
+            if (metodo_validacion_negros(rey)) {
+                pos = posicion(nombre);
+                tablero[pos[0]][pos[1]] = new Rey(false);
+                negras[contador_negras] = rey;
+                contador_negras++;
+                mover(1);
+            } else {
+                   JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+            }
         }
 
     }//GEN-LAST:event_ReyActionPerformed
@@ -474,133 +494,163 @@ public class Principal extends javax.swing.JFrame {
 
     private void A7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A7MouseClicked
         boton_universal = A7;
-        nombre="7A";
+        nombre = "7A";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_A7MouseClicked
 
     private void A8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A8MouseClicked
         boton_universal = A8;
-        nombre="8A";
+        nombre = "8A";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_A8MouseClicked
 
     private void CaballoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaballoActionPerformed
-        mover(0);
         int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
-            pos = posicion(nombre);
-            tablero[pos[0]][pos[1]] = new Caballo(true);
+            Caballo cab = new Caballo(true);
+            if (metodo_validacion_blancas(cab)) {
+                pos = posicion(nombre);
+                tablero[pos[0]][pos[1]] = new Caballo(true);
+                blancos[contador_blancas] = cab;
+                contador_blancas++;
+                mover(0);
+            } else {
+                JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+            }
         } else {
-            pos = posicion(nombre);
-            tablero[pos[0]][pos[1]] = new Caballo(false);
+            Caballo cab = new Caballo(false);
+            if (metodo_validacion_negros(cab)) {
+                pos = posicion(nombre);
+                tablero[pos[0]][pos[1]] = new Caballo(false);
+                negras[contador_negras] = cab;
+                contador_negras++;
+                mover(0);
+            } else {
+                JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+            }
         }
     }//GEN-LAST:event_CaballoActionPerformed
 
     private void PeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeonActionPerformed
-        mover(2);
         int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
-            pos = posicion(nombre);
-            tablero[pos[0]][pos[1]] = new Peon(true);
+            Peon peon = new Peon(true);
+            if (metodo_validacion_blancas(peon)) {
+                pos = posicion(nombre);
+                tablero[pos[0]][pos[1]] = new Peon(true);
+                blancos[contador_blancas] = peon;
+                contador_blancas++;
+                mover(2);
+            } else {
+                JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+            }
         } else {
-            pos = posicion(nombre);
-            tablero[pos[0]][pos[1]] = new Peon(false);
+            Peon peon = new Peon(false);
+            if (metodo_validacion_negros(peon)) {
+                pos = posicion(nombre);
+                tablero[pos[0]][pos[1]] = new Peon(false);
+                negras[contador_negras] = peon;
+                contador_negras++;
+                mover(2);
+            } else {
+                JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+            }
         }
     }//GEN-LAST:event_PeonActionPerformed
 
     private void B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B1MouseClicked
         boton_universal = B1;
-        nombre="1B";
+        nombre = "1B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B1MouseClicked
 
     private void B2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B2MouseClicked
-         boton_universal = B2;
-        nombre="2B";
+        boton_universal = B2;
+        nombre = "2B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B2MouseClicked
 
     private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
-         boton_universal = B3;
-        nombre="3B";
+        boton_universal = B3;
+        nombre = "3B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B3MouseClicked
 
     private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
-         boton_universal = B4;
-        nombre="4B";
+        boton_universal = B4;
+        nombre = "4B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B4MouseClicked
 
     private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
         boton_universal = B5;
-        nombre="5B";
+        nombre = "5B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B5MouseClicked
 
     private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
-         boton_universal = B6;
-        nombre="6B";
+        boton_universal = B6;
+        nombre = "6B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B6MouseClicked
 
     private void B7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B7MouseClicked
-         boton_universal = B7;
-        nombre="7B";
+        boton_universal = B7;
+        nombre = "7B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B7MouseClicked
 
     private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
-         boton_universal = B8;
-        nombre="8B";
+        boton_universal = B8;
+        nombre = "8B";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_B8MouseClicked
 
     private void C1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C1MouseClicked
         boton_universal = C1;
-        nombre="1C";
+        nombre = "1C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C1MouseClicked
 
     private void C2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C2MouseClicked
-         boton_universal = C2;
-        nombre="2C";
+        boton_universal = C2;
+        nombre = "2C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C2MouseClicked
 
     private void C3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C3MouseClicked
         boton_universal = C3;
-        nombre="3C";
+        nombre = "3C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C3MouseClicked
 
     private void C4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C4MouseClicked
         boton_universal = C4;
-        nombre="4C";
+        nombre = "4C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C4MouseClicked
 
     private void C5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C5MouseClicked
         boton_universal = C5;
-        nombre="5C";
+        nombre = "5C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C5MouseClicked
 
     private void C6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C6MouseClicked
         boton_universal = C6;
-        nombre="6C";
+        nombre = "6C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C6MouseClicked
 
     private void C7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C7MouseClicked
         boton_universal = C7;
-        nombre="7C";
+        nombre = "7C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C7MouseClicked
 
     private void C8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C8MouseClicked
         boton_universal = C8;
-        nombre="8C";
+        nombre = "8C";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_C8MouseClicked
 
@@ -730,6 +780,82 @@ public class Principal extends javax.swing.JFrame {
             return -1;
         }
 
+    }
+
+    boolean metodo_validacion_blancas(Pieza pieza) {
+        int contador_caballo = 0;
+        int contador_rey = 0;
+        int contador_peon = 0;
+        int elementos = 0;
+        int rey = 0;
+        for (int i = 0; i < 5; i++) {
+            if (blancos[i] != null) {
+                elementos++;
+            }
+            if (blancos[i] instanceof Rey) {
+                rey++;
+            }
+            if (blancos[i] instanceof Caballo) {
+                contador_caballo++;
+            }
+        }
+        if ((elementos == 4 && rey == 0 && !(pieza instanceof Rey)) || elementos == 5) {
+            System.out.println("primera");
+            return false;
+
+        } else if (pieza instanceof Rey) {
+            System.out.println("segunda");
+            if (rey == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else if (pieza instanceof Caballo) {
+            System.out.println("tercera");
+            if (contador_caballo < 2) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            System.out.println("cuarta");
+            return true;
+        }
+    }
+
+    boolean metodo_validacion_negros(Pieza pieza) {
+        int contador_caballo = 0;
+
+        int contador_peon = 0;
+        int elementos = 0;
+        int rey = 0;
+        for (int i = 0; i < 5; i++) {
+            if (negras[i] != null) {
+                elementos++;
+            }
+            if (negras[i] instanceof Rey) {
+                rey++;
+            }
+            if (negras[i] instanceof Caballo) {
+                contador_caballo++;
+            }
+        }
+        if ((elementos == 4 && rey == 0 && !(pieza instanceof Rey)) || elementos == 5) {
+            return false;
+        } else if (pieza instanceof Rey) {
+            if (rey == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else if (pieza instanceof Caballo) {
+            if (contador_caballo < 2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A1;

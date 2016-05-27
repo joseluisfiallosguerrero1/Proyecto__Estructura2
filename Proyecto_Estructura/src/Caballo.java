@@ -14,9 +14,11 @@ public class Caballo extends Pieza {
     public Caballo() {
     }
 
-    public Caballo(boolean Pieza) {
-        super(Pieza);
+    public Caballo(boolean esblanca) {
+        super(esblanca);
     }
+
+  
 
     @Override
     public String toString() {
