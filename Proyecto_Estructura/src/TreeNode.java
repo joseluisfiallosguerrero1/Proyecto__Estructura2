@@ -10,7 +10,7 @@
  */
 public class TreeNode {
     
-    Object value;
+       Object value;
     TreeNode parent;
     Lista hijos;
 
@@ -57,7 +57,6 @@ public class TreeNode {
         if (this.hasRightBrother() == true) {
             retorno = (TreeNode) parent.getHijos().get(position + 1);
         }
-
         return retorno;
     }
 

@@ -790,90 +790,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(H8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jRadioButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(180, 180, 180)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(270, 270, 270)
-                                        .addComponent(A6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(180, 180, 180)
-                                        .addComponent(A5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(90, 90, 90)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jRadioButton2)
-                                            .addComponent(A4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(80, 80, 80)
-                                .addComponent(A8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(540, 540, 540)
-                                .addComponent(A7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(270, 270, 270)
-                                        .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(90, 90, 90)
-                                        .addComponent(B4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(180, 180, 180)
-                                        .addComponent(B5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(360, 360, 360)
-                                        .addComponent(B7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(450, 450, 450)
-                                        .addComponent(B8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(90, 90, 90)
-                                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(360, 360, 360)
-                                        .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(270, 270, 270)
-                                        .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(180, 180, 180)
-                                        .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(80, 80, 80)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(90, 90, 90)
-                                        .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(450, 450, 450)
-                                .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)));
+        );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -956,16 +873,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(H6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(H8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap()));
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -977,7 +885,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_A1MouseClicked
 
     private void ReyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReyActionPerformed
-        int[] pos = new int[2];
+         int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
             Rey rey = new Rey(true);
             if (metodo_validacion_blancas(rey)) {
@@ -1075,7 +983,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CaballoActionPerformed
 
     private void PeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeonActionPerformed
-        int[] pos = new int[2];
+       int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
             Peon peon = new Peon(true);
             if (metodo_validacion_blancas(peon)) {
@@ -1198,242 +1106,242 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_C8MouseClicked
 
     private void D1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D1MouseClicked
-       boton_universal = D1;
-        nombre="1D";
+        boton_universal = D1;
+        nombre = "1D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D1MouseClicked
 
     private void D2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D2MouseClicked
         boton_universal = D2;
-        nombre="2D";
+        nombre = "2D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D2MouseClicked
 
     private void D3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D3MouseClicked
         boton_universal = D3;
-        nombre="3D";
+        nombre = "3D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D3MouseClicked
 
     private void D4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D4MouseClicked
         boton_universal = D4;
-        nombre="4D";
+        nombre = "4D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D4MouseClicked
 
     private void D5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D5MouseClicked
         boton_universal = D5;
-        nombre="5D";
+        nombre = "5D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D5MouseClicked
 
     private void D6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D6MouseClicked
         boton_universal = D6;
-        nombre="6D";
+        nombre = "6D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D6MouseClicked
 
     private void D7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D7MouseClicked
         boton_universal = D7;
-        nombre="7D";
+        nombre = "7D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D7MouseClicked
 
     private void D8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D8MouseClicked
         boton_universal = D8;
-        nombre="8D";
+        nombre = "8D";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_D8MouseClicked
 
     private void E1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E1MouseClicked
         boton_universal = E1;
-        nombre="1E";
+        nombre = "1E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E1MouseClicked
 
     private void E2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E2MouseClicked
         boton_universal = E2;
-        nombre="2E";
+        nombre = "2E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E2MouseClicked
 
     private void E3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E3MouseClicked
         boton_universal = E3;
-        nombre="3E";
+        nombre = "3E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E3MouseClicked
 
     private void E4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E4MouseClicked
         boton_universal = E4;
-        nombre="4E";
+        nombre = "4E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E4MouseClicked
 
     private void E5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E5MouseClicked
         boton_universal = E5;
-        nombre="5E";
+        nombre = "5E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E5MouseClicked
 
     private void E6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E6MouseClicked
         boton_universal = E6;
-        nombre="6E";
+        nombre = "6E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E6MouseClicked
 
     private void E7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E7MouseClicked
         boton_universal = E7;
-        nombre="7E";
+        nombre = "7E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E7MouseClicked
 
     private void E8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E8MouseClicked
         boton_universal = E8;
-        nombre="8E";
+        nombre = "8E";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_E8MouseClicked
 
     private void F1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F1MouseClicked
         boton_universal = F1;
-        nombre="1F";
+        nombre = "1F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F1MouseClicked
 
     private void F2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F2MouseClicked
         boton_universal = F2;
-        nombre="2F";
+        nombre = "2F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F2MouseClicked
 
     private void F3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F3MouseClicked
         boton_universal = F3;
-        nombre="3F";
+        nombre = "3F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F3MouseClicked
 
     private void F4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F4MouseClicked
         boton_universal = F4;
-        nombre="4F";
+        nombre = "4F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F4MouseClicked
 
     private void F5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F5MouseClicked
         boton_universal = F5;
-        nombre="5F";
+        nombre = "5F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F5MouseClicked
 
     private void F6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F6MouseClicked
         boton_universal = F6;
-        nombre="6F";
+        nombre = "6F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F6MouseClicked
 
     private void F7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F7MouseClicked
         boton_universal = F7;
-        nombre="7F";
+        nombre = "7F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F7MouseClicked
 
     private void F8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F8MouseClicked
         boton_universal = F8;
-        nombre="8F";
+        nombre = "8F";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_F8MouseClicked
 
     private void G1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G1MouseClicked
         boton_universal = G1;
-        nombre="1G";
+        nombre = "1G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G1MouseClicked
 
     private void G2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G2MouseClicked
         boton_universal = G2;
-        nombre="2G";
+        nombre = "2G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G2MouseClicked
 
     private void G3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G3MouseClicked
         boton_universal = G3;
-        nombre="3G";
+        nombre = "3G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G3MouseClicked
 
     private void G4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G4MouseClicked
         boton_universal = G4;
-        nombre="4G";
+        nombre = "4G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G4MouseClicked
 
     private void G5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G5MouseClicked
         boton_universal = G5;
-        nombre="5G";
+        nombre = "5G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G5MouseClicked
 
     private void G6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G6MouseClicked
         boton_universal = G6;
-        nombre="6G";
+        nombre = "6G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G6MouseClicked
 
     private void G7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G7MouseClicked
         boton_universal = G7;
-        nombre="7G";
+        nombre = "7G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G7MouseClicked
 
     private void G8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G8MouseClicked
         boton_universal = G8;
-        nombre="8G";
+        nombre = "8G";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_G8MouseClicked
 
     private void H1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H1MouseClicked
         boton_universal = H1;
-        nombre="1H";
+        nombre = "1H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H1MouseClicked
 
     private void H2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H2MouseClicked
         boton_universal = H2;
-        nombre="2H";
+        nombre = "2H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H2MouseClicked
 
     private void H3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H3MouseClicked
         boton_universal = H3;
-        nombre="3H";
+        nombre = "3H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H3MouseClicked
 
     private void H4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H4MouseClicked
         boton_universal = H4;
-        nombre="4H";
+        nombre = "4H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H4MouseClicked
 
     private void H5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H5MouseClicked
         boton_universal = H5;
-        nombre="5H";
+        nombre = "5H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H5MouseClicked
 
     private void H6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H6MouseClicked
         boton_universal = H6;
-        nombre="6H";
+        nombre = "6H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H6MouseClicked
 
     private void H7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H7MouseClicked
         boton_universal = H7;
-        nombre="7H";
+        nombre = "7H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H7MouseClicked
 
     private void H8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H8MouseClicked
         boton_universal = H8;
-        nombre="8H";
+        nombre = "8H";
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H8MouseClicked
 
@@ -1562,7 +1470,6 @@ public class Principal extends javax.swing.JFrame {
         } else {
             return -1;
         }
-
     }
 
     boolean metodo_validacion_blancas(Pieza pieza) {
@@ -1639,6 +1546,7 @@ public class Principal extends javax.swing.JFrame {
             }
         }
         return true;
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A1;

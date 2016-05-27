@@ -4,25 +4,13 @@
  * and open the template in the editor.
  */
 
-
 /**
  *
  * @author jose
  */
-public class Caballo extends Pieza {
+public class vacia extends Pieza {
 
-   public Caballo() {
-    }
-
-    public Caballo(boolean esblanca) {
-        super(esblanca);
-    }
-
-  
-
-    @Override
-    public String toString() {
-        return "Caballo{" + '}';
+    public vacia() {
     }
     
 }

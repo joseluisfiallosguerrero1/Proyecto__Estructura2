@@ -9,7 +9,7 @@
  * @author manuel
  */
 public class MyTree {
-    TreeNode root;
+   TreeNode root;
 
     public MyTree() {
     }

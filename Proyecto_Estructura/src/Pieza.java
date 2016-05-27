@@ -10,7 +10,7 @@
  * @author jose
  */
 public class Pieza {
-    boolean esblanca;
+   boolean esblanca;
 
     public Pieza() {
     }
@@ -31,6 +31,5 @@ public class Pieza {
     public void setEsblanca(boolean esblanca) {
         this.esblanca = esblanca;
     }
-    
     
 }
