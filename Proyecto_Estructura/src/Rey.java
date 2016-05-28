@@ -17,7 +17,8 @@ public class Rey extends Pieza {
         super(esblanca);
     }
 
-    public boolean isValidMovement(int x1, int y1, int x2, int y2) {
+    @Override
+    public boolean isValidMovement(Pieza[][] tablero, int x1, int y1, int x2, int y2, int turno) {
         boolean retorno = true;
 
         if (x1 < 8 && x1 >= 0 && x2 < 8 && x2 >= 0 && y1 < 8 && y1 >= 0 && y2 < 8 && y2 >= 0) {

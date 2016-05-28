@@ -9,23 +9,34 @@
  * @author jose
  */
 public class mapa {
-    int[][] tablero;
+
+    Pieza[][] tablero;
     Movimiento jugada;
 
     public mapa() {
+        tablero = new Pieza[8][8];
     }
 
-    public mapa(int[][] tablero, Movimiento jugada) {
-        this.tablero = tablero;
+    public mapa(Pieza[][] tab, Movimiento jugada) {
+        this.tablero = new Pieza[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                this.tablero[i][j] = tab[i][j];
+            }
+        }
         this.jugada = jugada;
     }
 
-    public int[][] getTablero() {
+    public Pieza[][] getTablero() {
         return tablero;
     }
 
-    public void setTablero(int[][] tablero) {
-        this.tablero = tablero;
+    public void setTablero(Pieza[][] tablero) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                this.tablero[i][j] = tablero[i][j];
+            }
+        }
     }
 
     public Movimiento getJugada() {
@@ -40,5 +51,5 @@ public class mapa {
     public String toString() {
         return "mapa{" + "tablero=" + tablero + ", jugada=" + jugada + '}';
     }
-    
+
 }

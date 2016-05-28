@@ -12,5 +12,10 @@ public class vacia extends Pieza {
 
     public vacia() {
     }
-    
+
+   @Override
+    public boolean isValidMovement(Pieza[][] tablero, int pos1, int pos2, int pos3, int pos4, int jugador) {
+        return false;
+    }
+
 }

@@ -14,16 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    javax.swing.JButton boton_universal = new javax.swing.JButton();
-    Pieza[][] tablero = new Pieza[8][8];
-    String nombre;
-    Pieza[] blancos = new Pieza[5];
-    Pieza[] negras = new Pieza[5];
-    int contador_blancas = 0;
-    int contador_negras = 0;
-
     public Principal() {
         initComponents();
+
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -915,7 +908,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_A1MouseClicked
 
     private void ReyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReyActionPerformed
-         int[] pos = new int[2];
+        int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
             Rey rey = new Rey(true);
             if (metodo_validacion_blancas(rey)) {
@@ -925,7 +918,7 @@ public class Principal extends javax.swing.JFrame {
                 contador_blancas++;
                 mover(1);
             } else {
-                   JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+                JOptionPane.showMessageDialog(null, "MOvimiento invalido");
             }
         } else {
             Rey rey = new Rey(false);
@@ -936,7 +929,7 @@ public class Principal extends javax.swing.JFrame {
                 contador_negras++;
                 mover(1);
             } else {
-                   JOptionPane.showMessageDialog(null, "MOvimiento invalido");
+                JOptionPane.showMessageDialog(null, "MOvimiento invalido");
             }
         }
 
@@ -1013,7 +1006,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CaballoActionPerformed
 
     private void PeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeonActionPerformed
-       int[] pos = new int[2];
+        int[] pos = new int[2];
         if (this.jRadioButton1.isSelected() == true) {
             Peon peon = new Peon(true);
             if (metodo_validacion_blancas(peon)) {
@@ -1543,6 +1536,66 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    public void simularPartida(TreeNode evaluando) {
+        realizarJugada(evaluando, turno);
+        turno = turno == 1 ? 2 : 1;
+    }
+
+    void realizarJugada(TreeNode board, int turno) {
+        int x1, y1;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (turno == 1 && ((mapa) board.getValue()).getTablero()[i][j].isEsblanca()
+                        || turno == 2 && ((mapa) board.getValue()).getTablero()[i][j].isEsblanca() == false) {
+                    x1 = i;
+                    y1 = j;
+                    for (int k = 0; k < 8; k++) {
+                        for (int l = 0; l < 8; l++) {
+                            if (((mapa) board.getValue()).getTablero()[x1][y1].isValidMovement(((mapa) board.getValue()).getTablero(),
+                                    x1, y1, k, l, turno)) {
+                                if (checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k, l) == 1
+                                        || checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k, l) == 2) {
+                                    nuevo = new mapa(((mapa) board.getValue()).getTablero(), new Movimiento(x1, y1, k, l));
+                                    moverCasilla(nuevo.getTablero(), x1, y1, k, l);
+                                    hijo = new TreeNode(nuevo);
+                                    board.addSon(hijo);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void moverCasilla(Pieza[][] tablero, int x1, int y1, int x2, int y2) {
+        tablero[x2][y2] = tablero[x1][y1];
+        tablero[x1][y1] = null;
+    }
+
+    public int checkNextSquare(Pieza[][] tablero, int turno, int x2, int y2) {
+        int retorno = 0;
+        if (turno == 1) {//si es blanca
+            if (tablero[x2][y2] == null) {
+                retorno = 1; //Si la siguiente casilla esta vacia
+            } else if (tablero[x2][y2].isEsblanca() == false) {
+                retorno = 2;
+            } else if (tablero[x2][y2].isEsblanca()) {
+                retorno = 3;
+            }
+        } else {//si es negra
+            if (tablero[x2][y2] == null) {
+                retorno = 1; //Si la siguiente casilla esta vacia
+            } else if (tablero[x2][y2].isEsblanca()) {
+                retorno = 2;
+            } else if (tablero[x2][y2].isEsblanca() == false) {
+                retorno = 3;
+            }
+        }
+        return retorno;
+    }
+
     boolean metodo_validacion_negros(Pieza pieza) {
         int contador_caballo = 0;
 
@@ -1655,4 +1708,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
+ javax.swing.JButton boton_universal = new javax.swing.JButton();
+    Pieza[][] tablero = new Pieza[8][8];
+    String nombre;
+    Pieza[] blancos = new Pieza[5];
+    Pieza[] negras = new Pieza[5];
+    int contador_blancas = 0;
+    int contador_negras = 0;
+    int turno;
+    MyTree mapeo = new MyTree();
+    TreeNode hijo = new TreeNode();
+    mapa nuevo = new mapa();
 }

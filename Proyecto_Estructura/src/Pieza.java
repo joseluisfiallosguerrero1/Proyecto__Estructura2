@@ -9,7 +9,7 @@
  *
  * @author jose
  */
-public class Pieza {
+public abstract class Pieza {
    boolean esblanca;
 
     public Pieza() {
@@ -19,6 +19,9 @@ public class Pieza {
         this.esblanca = Pieza;
     }
 
+    
+    public abstract boolean isValidMovement(Pieza[][] board,int x1, int y1, int x2, int y2, int turno);
+    
     @Override
     public String toString() {
         return "Pieza{" + "Pieza=" + esblanca + '}';
