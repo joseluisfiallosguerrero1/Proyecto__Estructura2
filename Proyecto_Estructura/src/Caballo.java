@@ -18,7 +18,31 @@ public class Caballo extends Pieza {
         super(esblanca);
     }
 
-  
+    public boolean isValidMovement(int x1, int y1, int x2, int y2){
+        if(x1<8&&x1>=0&&x2<8&&x2>=0&&y1<8&&y1>=0&&y2<8&&y2>=0){
+		if((x2 == x1-2) && (y2 == y1 +1)){
+			return true;
+		}else if((x2 == x1-2) && (y2 == y1 -1)){
+			return true;
+		}else if((x2 == x1-1) && (y2 == y1 - 2)){
+			return true;
+		}else if((x2 == x1-1) && (y2 == y1 +2)){
+			return true;
+		}else if((x2 == x1+1) && (y2 == y1 -2)){
+			return true;
+		}else if((x2 == x1+1) && (y2 == y1 +2)){
+			return true;
+		}else if((x2 == x1+2) && (y2 == y1 -1)){
+			return true;
+		}else if((x2 == x1+2) && (y2 == y1 +1)){
+			return true;
+		}else{
+			return false;
+		}		
+	}else{
+                return false;
+        }
+    }
 
     @Override
     public String toString() {

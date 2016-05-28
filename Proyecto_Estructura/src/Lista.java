@@ -13,6 +13,7 @@ public class Lista {
     int size;
 
     public Lista() {
+        head = new ListNode();
         size = 0;
     }
 

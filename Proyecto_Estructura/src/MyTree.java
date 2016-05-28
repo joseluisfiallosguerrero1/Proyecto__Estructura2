@@ -18,31 +18,29 @@ public class MyTree {
         this.root = root;
     }
 
-    public Object preorder(TreeNode nodo) {
-        if(nodo == null){
-            nodo = (TreeNode)root.getLefterSon();
+    public void preorder(TreeNode nodo) {
+         if (nodo == null) {
+            nodo = root;
         }
-        if (nodo.isParent() == true) {
-            preorder((TreeNode) nodo.getLefterSon());
-            return nodo;
-        } else {
-            if (nodo.hasRightBrother() == true) {
-                preorder((TreeNode) nodo.getRightBrother());
-                return nodo;
-            } else {
-                while (nodo.hasRightBrother() == false) {
-                    if (nodo != root) {
-                        nodo = nodo.getParent();
-                    }
-                }
 
+        if (nodo.isParent()) {
+            System.out.println(nodo.getValue());
+            preorder( nodo.getLefterSon());
+        } else if (nodo.hasRightBrother()) {
+            System.out.println(nodo.getValue());
+            preorder(nodo.getRightBrother());
+        } else {
+            System.out.println(nodo.getValue());
+            while (nodo.hasRightBrother() == false && nodo != root) {
                 if (nodo != root) {
-                    preorder((TreeNode) nodo.getRightBrother());
-                    return nodo;
-                }else{
-                    return root;
+                    nodo = nodo.getParent();
                 }
+            }
+
+            if (nodo != root) {
+                preorder( nodo.getRightBrother());
             }
         }
     }
+    
 }

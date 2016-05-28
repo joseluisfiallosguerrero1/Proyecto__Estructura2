@@ -68,16 +68,16 @@
           <Group type="102" attributes="0">
               <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="B1" min="-2" pref="90" max="-2" attributes="0"/>
                   <Component id="A1" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Component id="B1" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="A2" min="-2" pref="90" max="-2" attributes="0"/>
                   <Component id="B2" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="A3" min="-2" pref="90" max="-2" attributes="0"/>
                   <Component id="B3" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Component id="A3" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="B4" min="-2" pref="90" max="-2" attributes="0"/>
@@ -92,12 +92,17 @@
                   <Component id="A6" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="A7" min="-2" pref="90" max="-2" attributes="0"/>
                   <Component id="B7" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Component id="A7" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="B8" min="-2" pref="90" max="-2" attributes="0"/>
                   <Component id="A8" min="-2" pref="90" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_ComerCaballo" min="-2" pref="120" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="102" attributes="0">
@@ -117,6 +122,8 @@
               <Component id="C7" min="-2" pref="90" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="C8" min="-2" pref="90" max="-2" attributes="0"/>
+              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+              <Component id="btn_coronarPeon" min="-2" pref="120" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
@@ -135,6 +142,8 @@
               <Component id="D7" min="-2" pref="90" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="D8" min="-2" pref="90" max="-2" attributes="0"/>
+              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+              <Component id="btn_ponerHacke" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
@@ -239,6 +248,11 @@
                           <Component id="B6" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="B7" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="B8" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                              <Component id="btn_ComerCaballo" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -251,6 +265,10 @@
                   <Component id="C6" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="C7" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="C8" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                      <Component id="btn_coronarPeon" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="D1" min="-2" pref="80" max="-2" attributes="0"/>
@@ -261,6 +279,10 @@
                   <Component id="D6" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="D7" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="D8" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="btn_ponerHacke" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="E1" min="-2" pref="80" max="-2" attributes="0"/>
@@ -1155,6 +1177,26 @@
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="H8MouseClicked"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Evaluaciones"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_ComerCaballo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comer Caballo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_coronarPeon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Coronar Peon"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_ponerHacke">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Poner en hacke"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

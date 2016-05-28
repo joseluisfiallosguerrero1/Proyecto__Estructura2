@@ -9,8 +9,8 @@
  * @author manuel
  */
 public class TreeNode {
-    
-       Object value;
+
+    Object value;
     TreeNode parent;
     Lista hijos;
 
@@ -47,16 +47,17 @@ public class TreeNode {
         this.getHijos().push(hijo);
     }
 
-    public Object getLefterSon() {
-        return this.getHijos().get(0);
+    public TreeNode getLefterSon() {
+        return (TreeNode) this.getHijos().get(0);
     }
 
-    public Object getRightBrother() {
+    public TreeNode getRightBrother() {
         TreeNode retorno = new TreeNode();
         int position = parent.getHijos().find(this);
         if (this.hasRightBrother() == true) {
-            retorno = (TreeNode) parent.getHijos().get(position + 1);
+            retorno = (TreeNode) this.parent.getHijos().get(position + 1);
         }
+
         return retorno;
     }
 
@@ -73,12 +74,14 @@ public class TreeNode {
 
     public boolean hasRightBrother() {
         boolean retorno = false;
-        int position = parent.getHijos().find(this);
+        int position;
 
-        if (this.getParent().getHijos().getSize() > position + 1) {
-            retorno = true;
+        if (this.getParent() != null) {
+            position = this.getParent().getHijos().find(this);
+            if (this.getParent().getHijos().getSize() > position + 1) {
+                retorno = true;
+            }
         }
-
         return retorno;
     }
 }
