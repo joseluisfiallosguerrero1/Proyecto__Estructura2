@@ -61,6 +61,9 @@ public class Lista {
     public int find(Object value) {
         ListNode current = head;
 
+        if(head.getValue() == value){
+            return 0;
+        }
         for (int i = 0; i < size; i++) {
             if (current.getValue() == value) {
                 return i;

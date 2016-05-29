@@ -24,7 +24,7 @@ public abstract class Pieza {
     
     @Override
     public String toString() {
-        return "Pieza{" + "Pieza=" + esblanca + '}';
+        return " ";
     }
 
     public boolean isEsblanca() {

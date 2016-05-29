@@ -80,9 +80,24 @@ public class TreeNode {
 
         if (this.getParent() != null) {
             position = this.getParent().getHijos().find(this);
-            if (this.getParent().getHijos().getSize() > position + 1) {
+            if(this.getParent().getHijos().getSize() == 1){
+                retorno = false;
+            }else if (this.getParent().getHijos().getSize() > position + 1) {
                 retorno = true;
             }
+        }
+        return retorno;
+    }
+    
+    public Lista getPath(){
+        Lista retorno = new Lista();
+        TreeNode nodo = new TreeNode();
+        
+        nodo = this;
+        
+        while(nodo.getParent() != null){
+            retorno.push(nodo);
+            nodo = nodo.getParent();
         }
         return retorno;
     }

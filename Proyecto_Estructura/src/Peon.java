@@ -20,7 +20,7 @@ public class Peon extends Pieza {
     @Override
     public boolean isValidMovement(Pieza[][] tablero, int pos1, int pos2, int pos3, int pos4, int jugador) {
         boolean validacion = false;
-        if (jugador == 1) {
+        if (jugador == 2) {
             if ((pos2 == pos4) && (pos1 + 1 == pos3)) {
                 if (tablero[pos3][pos4] instanceof vacia) {
                     validacion = true;
@@ -37,12 +37,12 @@ public class Peon extends Pieza {
                 }
             }
         } else {
-            if ((pos2 == pos4) && (pos1 - 1 == pos3 || pos1 - 2 == pos3)) {
+            if ((pos2 == pos4) && (pos1 - 1 == pos3)) {
                 if (tablero[pos3][pos4] instanceof vacia) {
                     validacion = true;
                 }
             }
-            if ((pos4 == pos2 - 1 && pos3 == pos1 - 1) || (pos4 == pos2 + 1 && pos3 == pos1 - 1)) {
+            if ((pos4 == pos2 - 1) && (pos3 == pos1 - 1) || (pos4 == pos2 + 1) && (pos3 == pos1 - 1)) {
                 if (tablero[pos3][pos4].isEsblanca() != tablero[pos1][pos2].isEsblanca() && !(tablero[pos3][pos4] instanceof vacia)) {
                     validacion = true;
                 }
@@ -54,6 +54,15 @@ public class Peon extends Pieza {
             }
         }
         return validacion;
+    }
+
+    @Override
+    public String toString() {
+        if (this.isEsblanca()) {
+            return "Peon blanco ";
+        } else {
+            return "Peon negro ";
+        }
     }
 
 }

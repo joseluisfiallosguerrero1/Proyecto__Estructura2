@@ -9,12 +9,14 @@
  * @author jose
  */
 public class Movimiento {
+    Object pieza;
     int x1,x2,y1,y2;
 
     public Movimiento() {
     }
 
-    public Movimiento(int x1, int y1, int x2, int y2) {
+    public Movimiento(Object nuevo, int x1, int y1, int x2, int y2) {
+        this.pieza = nuevo;
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
@@ -55,7 +57,7 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return "x1: " + x1 + ", y1: " + x2 + " --->  x2: " + y1 + ", y2: " + y2 + '}';
+        return pieza.toString() + "x1: " + x1 + ", y1: " + y1 + " --->  x2: " + x2 + ", y2: " + y2;
     }
     
 }

@@ -47,7 +47,11 @@ public class Caballo extends Pieza {
 
     @Override
     public String toString() {
-        return "Caballo{" + '}';
+        if (this.isEsblanca()) {
+            return "Caballo blanco ";
+        } else {
+            return "Caballo negro ";
+        }
     }
     
 }

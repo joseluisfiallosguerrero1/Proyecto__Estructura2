@@ -45,4 +45,13 @@ public class Rey extends Pieza {
         }
         return retorno;
     }
+    
+    @Override
+    public String toString() {
+        if (this.isEsblanca()) {
+            return "Rey blanco ";
+        } else {
+            return "Rey negro ";
+        }
+    }
 }
