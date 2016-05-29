@@ -15,9 +15,11 @@ public class TreeNode {
     Lista hijos;
 
     public TreeNode() {
+        hijos = new Lista();
     }
 
     public TreeNode(Object value) {
+        hijos = new Lista();
         this.value = value;
     }
 
