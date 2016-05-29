@@ -38,6 +38,7 @@ public class Principal extends javax.swing.JFrame {
         Caballo = new javax.swing.JMenuItem();
         Rey = new javax.swing.JMenuItem();
         Peon = new javax.swing.JMenuItem();
+        Borrar = new javax.swing.JMenuItem();
         A1 = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -132,6 +133,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPopupMenu1.add(Peon);
+
+        Borrar.setText("borrar");
+        jPopupMenu1.add(Borrar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1743,6 +1747,20 @@ public class Principal extends javax.swing.JFrame {
         }
         return false;
     }
+    Lista getPath(TreeNode nodo_amostrar, TreeNode raiz) {
+        Lista lista_de_padres = new Lista();
+        lista_de_padres.push(nodo_amostrar);
+        TreeNode nodo_seleccionado = new TreeNode();
+        nodo_seleccionado = nodo_amostrar;
+        while (nodo_seleccionado != raiz) {
+            lista_de_padres.push(nodo_seleccionado.getParent());
+            nodo_seleccionado = nodo_seleccionado.getParent();
+        }
+        return lista_de_padres;
+    }
+
+
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1762,6 +1780,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton B6;
     private javax.swing.JButton B7;
     private javax.swing.JButton B8;
+    private javax.swing.JMenuItem Borrar;
     private javax.swing.JButton C1;
     private javax.swing.JButton C2;
     private javax.swing.JButton C3;
