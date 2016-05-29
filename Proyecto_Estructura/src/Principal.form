@@ -1187,11 +1187,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Comer Caballo"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_ComerCaballoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_coronarPeon">
       <Properties>
         <Property name="text" type="java.lang.String" value="Coronar Peon"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_coronarPeonMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_coronarPeonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_ponerHacke">
       <Properties>

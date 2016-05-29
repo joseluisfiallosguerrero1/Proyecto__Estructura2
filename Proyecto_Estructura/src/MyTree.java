@@ -18,19 +18,23 @@ public class MyTree {
         this.root = root;
     }
 
-    public void preorder(TreeNode nodo) {
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    
+    public void preorder(TreeNode nodo, Lista retorno) {
          if (nodo == null) {
             nodo = root;
         }
 
         if (nodo.isParent()) {
-            System.out.println(nodo.getValue());
-            preorder( nodo.getLefterSon());
+            preorder( nodo.getLefterSon(), retorno);
         } else if (nodo.hasRightBrother()) {
-            System.out.println(nodo.getValue());
-            preorder(nodo.getRightBrother());
+            retorno.push(nodo);
+            preorder(nodo.getRightBrother(),retorno);
         } else {
-            System.out.println(nodo.getValue());
+            retorno.push(nodo);
             while (nodo.hasRightBrother() == false && nodo != root) {
                 if (nodo != root) {
                     nodo = nodo.getParent();
@@ -38,9 +42,10 @@ public class MyTree {
             }
 
             if (nodo != root) {
-                preorder( nodo.getRightBrother());
+                preorder( nodo.getRightBrother(),retorno);
             }
         }
+        
     }
     
 }

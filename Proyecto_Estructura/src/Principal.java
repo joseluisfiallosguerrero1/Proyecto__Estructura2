@@ -16,7 +16,11 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
-
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                this.tablero[i][j] = new vacia();
+            }
+        }
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -653,8 +657,23 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Evaluaciones");
 
         btn_ComerCaballo.setText("Comer Caballo");
+        btn_ComerCaballo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ComerCaballoMouseClicked(evt);
+            }
+        });
 
         btn_coronarPeon.setText("Coronar Peon");
+        btn_coronarPeon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_coronarPeonMouseClicked(evt);
+            }
+        });
+        btn_coronarPeon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_coronarPeonActionPerformed(evt);
+            }
+        });
 
         btn_ponerHacke.setText("Poner en hacke");
 
@@ -1368,6 +1387,66 @@ public class Principal extends javax.swing.JFrame {
         menu(evt.isMetaDown(), evt.getComponent(), evt.getX(), evt.getY());
     }//GEN-LAST:event_H8MouseClicked
 
+    private void btn_ComerCaballoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ComerCaballoMouseClicked
+        nodos = new Lista();
+        TreeNode temporal = new TreeNode();
+        int beforeEvaluation = countHorses(tablero);
+        int afterEvaluation = 0;
+        boolean continuePlaying = true;
+        nuevo = new mapa(tablero, new Movimiento(0, 0, 0, 0));
+        mapeo = new MyTree(new TreeNode(nuevo));
+
+        while (continuePlaying) {
+            mapeo.preorder(null, nodos);
+            for (int i = 0; i < nodos.getSize(); i++) {
+                temporal = (TreeNode) nodos.get(i);
+                System.out.println(temporal.getValue().getClass().toString());
+                afterEvaluation = countHorses(((mapa) (temporal.getValue())).getTablero());
+                if (beforeEvaluation != afterEvaluation) {
+                    continuePlaying = false;
+                    nodoGuardado = temporal;
+                    JOptionPane.showMessageDialog(this, "Ya se han comido un caballo", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }
+                this.simularPartida((TreeNode) nodos.get(i));
+            }
+            nodos = new Lista();
+        }
+        JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_btn_ComerCaballoMouseClicked
+
+    private void btn_coronarPeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_coronarPeonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_coronarPeonActionPerformed
+
+    private void btn_coronarPeonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_coronarPeonMouseClicked
+          nodos = new Lista();
+        TreeNode temporal = new TreeNode();
+        int beforeEvaluation = countHorses(tablero);
+        int afterEvaluation = 0;
+        boolean continuePlaying = true;
+        nuevo = new mapa(tablero, new Movimiento(0, 0, 0, 0));
+        mapeo = new MyTree(new TreeNode(nuevo));
+
+        while (continuePlaying) {
+            mapeo.preorder(null, nodos);
+            for (int i = 0; i < nodos.getSize(); i++) {
+                temporal = (TreeNode) nodos.get(i);
+                
+                if (esreina(temporal)) {
+                    continuePlaying = false;
+                    nodoGuardado = temporal;
+                    JOptionPane.showMessageDialog(this, "Ya un peón se ha coronado", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }
+                this.simularPartida((TreeNode) nodos.get(i));
+            }
+            nodos = new Lista();
+        }
+        JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btn_coronarPeonMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1541,9 +1620,9 @@ public class Principal extends javax.swing.JFrame {
         turno = turno == 1 ? 2 : 1;
     }
 
-    void realizarJugada(TreeNode board, int turno) {
+    public void realizarJugada(TreeNode board, int turno) {
         int x1, y1;
-
+        nodoUniversal = board;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (turno == 1 && ((mapa) board.getValue()).getTablero()[i][j].isEsblanca()
@@ -1555,11 +1634,11 @@ public class Principal extends javax.swing.JFrame {
                             if (((mapa) board.getValue()).getTablero()[x1][y1].isValidMovement(((mapa) board.getValue()).getTablero(),
                                     x1, y1, k, l, turno)) {
                                 if (checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k, l) == 1
-                                        || checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k, l) == 2) {
+                                        || checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k,
+                                                l) == 2) {
                                     nuevo = new mapa(((mapa) board.getValue()).getTablero(), new Movimiento(x1, y1, k, l));
                                     moverCasilla(nuevo.getTablero(), x1, y1, k, l);
-                                    hijo = new TreeNode(nuevo);
-                                    board.addSon(hijo);
+                                    nodoUniversal.addSon(nuevo);
                                 }
                             }
                         }
@@ -1569,33 +1648,53 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    public int countHorses(Pieza[][] board) {
+        int horses = 0;
+
+        for (int i = 0; i < 8; i++) {
+            for (int k = 0; k < 8; k++) {
+                if (board[i][k] instanceof Caballo) {
+                    horses++;
+                }
+            }
+        }
+        return horses;
+    }
+
     public void moverCasilla(Pieza[][] tablero, int x1, int y1, int x2, int y2) {
         tablero[x2][y2] = tablero[x1][y1];
-        tablero[x1][y1] = null;
+        tablero[x1][y1] = new vacia();
     }
 
     public int checkNextSquare(Pieza[][] tablero, int turno, int x2, int y2) {
         int retorno = 0;
         if (turno == 1) {//si es blanca
-            if (tablero[x2][y2] == null) {
+            if (tablero[x2][y2] instanceof vacia) {
                 retorno = 1; //Si la siguiente casilla esta vacia
             } else if (tablero[x2][y2].isEsblanca() == false) {
                 retorno = 2;
             } else if (tablero[x2][y2].isEsblanca()) {
                 retorno = 3;
             }
+
+        } else if (tablero[x2][y2] == null) {
+
         } else//si es negra
-         if (tablero[x2][y2] == null) {
+        {
+            if (tablero[x2][y2] instanceof vacia) {
+
                 retorno = 1; //Si la siguiente casilla esta vacia
             } else if (tablero[x2][y2].isEsblanca()) {
                 retorno = 2;
             } else if (tablero[x2][y2].isEsblanca() == false) {
                 retorno = 3;
             }
+        }
         return retorno;
     }
 
-    boolean metodo_validacion_negros(Pieza pieza) {
+    boolean metodo_validacion_negros(Pieza pieza
+    ) {
         int contador_caballo = 0;
 
         int contador_peon = 0;
@@ -1630,6 +1729,22 @@ public class Principal extends javax.swing.JFrame {
         return true;
 
     }
+    boolean esreina(TreeNode nodo) {
+        Pieza[][] tab = ((mapa) nodo.getValue()).getTablero();
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (tab[i][j] instanceof Peon && i == 7 ){
+                    return true;
+                }
+                if (tab[i][j] instanceof Peon && i == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A1;
     private javax.swing.JButton A2;
@@ -1714,8 +1829,10 @@ public class Principal extends javax.swing.JFrame {
     Pieza[] negras = new Pieza[5];
     int contador_blancas = 0;
     int contador_negras = 0;
-    int turno;
+    int turno = 1;
     MyTree mapeo = new MyTree();
-    TreeNode hijo = new TreeNode();
+    TreeNode nodoUniversal = new TreeNode();
     mapa nuevo = new mapa();
+    Lista nodos = new Lista();
+    TreeNode nodoGuardado = new TreeNode();
 }
