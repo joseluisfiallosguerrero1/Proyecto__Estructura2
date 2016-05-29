@@ -5,6 +5,8 @@
  */
 
 import java.awt.Component;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -159,7 +161,6 @@ public class Principal extends javax.swing.JFrame {
         jPopupMenu1.add(Borrar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         A1.setBackground(new java.awt.Color(254, 173, 173));
         A1.setForeground(new java.awt.Color(254, 173, 173));
@@ -168,19 +169,13 @@ public class Principal extends javax.swing.JFrame {
                 A1MouseClicked(evt);
             }
         });
-        getContentPane().add(A1);
-        A1.setBounds(70, 20, 90, 80);
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("BLANCOS");
-        getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(850, 50, 94, 24);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setSelected(true);
         jRadioButton2.setText("NEGRAS");
-        getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(850, 80, 110, 24);
 
         A2.setBackground(new java.awt.Color(143, 55, 55));
         A2.setForeground(new java.awt.Color(143, 55, 55));
@@ -189,8 +184,6 @@ public class Principal extends javax.swing.JFrame {
                 A2MouseClicked(evt);
             }
         });
-        getContentPane().add(A2);
-        A2.setBounds(160, 20, 90, 80);
 
         A3.setBackground(new java.awt.Color(254, 173, 173));
         A3.setForeground(new java.awt.Color(254, 254, 254));
@@ -199,8 +192,6 @@ public class Principal extends javax.swing.JFrame {
                 A3MouseClicked(evt);
             }
         });
-        getContentPane().add(A3);
-        A3.setBounds(250, 20, 90, 80);
 
         A4.setBackground(new java.awt.Color(143, 55, 55));
         A4.setForeground(new java.awt.Color(1, 1, 1));
@@ -209,8 +200,6 @@ public class Principal extends javax.swing.JFrame {
                 A4MouseClicked(evt);
             }
         });
-        getContentPane().add(A4);
-        A4.setBounds(340, 20, 90, 80);
 
         A5.setBackground(new java.awt.Color(254, 173, 173));
         A5.setForeground(new java.awt.Color(254, 254, 254));
@@ -219,8 +208,6 @@ public class Principal extends javax.swing.JFrame {
                 A5MouseClicked(evt);
             }
         });
-        getContentPane().add(A5);
-        A5.setBounds(430, 20, 90, 80);
 
         A6.setBackground(new java.awt.Color(143, 55, 55));
         A6.setForeground(new java.awt.Color(1, 1, 1));
@@ -229,8 +216,6 @@ public class Principal extends javax.swing.JFrame {
                 A6MouseClicked(evt);
             }
         });
-        getContentPane().add(A6);
-        A6.setBounds(520, 20, 90, 80);
 
         A7.setBackground(new java.awt.Color(254, 173, 173));
         A7.setForeground(new java.awt.Color(254, 254, 254));
@@ -239,8 +224,6 @@ public class Principal extends javax.swing.JFrame {
                 A7MouseClicked(evt);
             }
         });
-        getContentPane().add(A7);
-        A7.setBounds(610, 20, 90, 80);
 
         A8.setBackground(new java.awt.Color(143, 55, 55));
         A8.setForeground(new java.awt.Color(1, 1, 1));
@@ -249,8 +232,6 @@ public class Principal extends javax.swing.JFrame {
                 A8MouseClicked(evt);
             }
         });
-        getContentPane().add(A8);
-        A8.setBounds(700, 20, 90, 80);
 
         B1.setBackground(new java.awt.Color(143, 55, 55));
         B1.setForeground(new java.awt.Color(143, 55, 55));
@@ -259,8 +240,6 @@ public class Principal extends javax.swing.JFrame {
                 B1MouseClicked(evt);
             }
         });
-        getContentPane().add(B1);
-        B1.setBounds(70, 100, 90, 80);
 
         B2.setBackground(new java.awt.Color(254, 173, 173));
         B2.setForeground(new java.awt.Color(254, 173, 173));
@@ -269,8 +248,6 @@ public class Principal extends javax.swing.JFrame {
                 B2MouseClicked(evt);
             }
         });
-        getContentPane().add(B2);
-        B2.setBounds(160, 100, 90, 80);
 
         B3.setBackground(new java.awt.Color(143, 55, 55));
         B3.setForeground(new java.awt.Color(143, 55, 55));
@@ -279,8 +256,6 @@ public class Principal extends javax.swing.JFrame {
                 B3MouseClicked(evt);
             }
         });
-        getContentPane().add(B3);
-        B3.setBounds(250, 100, 90, 80);
 
         B4.setBackground(new java.awt.Color(254, 173, 173));
         B4.setForeground(new java.awt.Color(254, 173, 173));
@@ -289,8 +264,6 @@ public class Principal extends javax.swing.JFrame {
                 B4MouseClicked(evt);
             }
         });
-        getContentPane().add(B4);
-        B4.setBounds(340, 100, 90, 80);
 
         B5.setBackground(new java.awt.Color(143, 55, 55));
         B5.setForeground(new java.awt.Color(143, 55, 55));
@@ -299,8 +272,6 @@ public class Principal extends javax.swing.JFrame {
                 B5MouseClicked(evt);
             }
         });
-        getContentPane().add(B5);
-        B5.setBounds(430, 100, 90, 80);
 
         B6.setBackground(new java.awt.Color(254, 173, 173));
         B6.setForeground(new java.awt.Color(254, 173, 173));
@@ -309,8 +280,6 @@ public class Principal extends javax.swing.JFrame {
                 B6MouseClicked(evt);
             }
         });
-        getContentPane().add(B6);
-        B6.setBounds(520, 100, 90, 80);
 
         B7.setBackground(new java.awt.Color(143, 55, 55));
         B7.setForeground(new java.awt.Color(143, 55, 55));
@@ -319,8 +288,6 @@ public class Principal extends javax.swing.JFrame {
                 B7MouseClicked(evt);
             }
         });
-        getContentPane().add(B7);
-        B7.setBounds(610, 100, 90, 80);
 
         B8.setBackground(new java.awt.Color(254, 173, 173));
         B8.setForeground(new java.awt.Color(254, 173, 173));
@@ -329,8 +296,6 @@ public class Principal extends javax.swing.JFrame {
                 B8MouseClicked(evt);
             }
         });
-        getContentPane().add(B8);
-        B8.setBounds(700, 100, 90, 80);
 
         C1.setBackground(new java.awt.Color(254, 173, 173));
         C1.setForeground(new java.awt.Color(254, 173, 173));
@@ -339,8 +304,6 @@ public class Principal extends javax.swing.JFrame {
                 C1MouseClicked(evt);
             }
         });
-        getContentPane().add(C1);
-        C1.setBounds(70, 180, 90, 80);
 
         C2.setBackground(new java.awt.Color(143, 55, 55));
         C2.setForeground(new java.awt.Color(143, 55, 55));
@@ -349,8 +312,6 @@ public class Principal extends javax.swing.JFrame {
                 C2MouseClicked(evt);
             }
         });
-        getContentPane().add(C2);
-        C2.setBounds(160, 180, 90, 80);
 
         C3.setBackground(new java.awt.Color(254, 173, 173));
         C3.setForeground(new java.awt.Color(254, 173, 173));
@@ -359,8 +320,6 @@ public class Principal extends javax.swing.JFrame {
                 C3MouseClicked(evt);
             }
         });
-        getContentPane().add(C3);
-        C3.setBounds(250, 180, 90, 80);
 
         C4.setBackground(new java.awt.Color(143, 55, 55));
         C4.setForeground(new java.awt.Color(143, 55, 55));
@@ -369,8 +328,6 @@ public class Principal extends javax.swing.JFrame {
                 C4MouseClicked(evt);
             }
         });
-        getContentPane().add(C4);
-        C4.setBounds(340, 180, 90, 80);
 
         C5.setBackground(new java.awt.Color(254, 173, 173));
         C5.setForeground(new java.awt.Color(254, 173, 173));
@@ -379,8 +336,6 @@ public class Principal extends javax.swing.JFrame {
                 C5MouseClicked(evt);
             }
         });
-        getContentPane().add(C5);
-        C5.setBounds(430, 180, 90, 80);
 
         C6.setBackground(new java.awt.Color(143, 55, 55));
         C6.setForeground(new java.awt.Color(143, 55, 55));
@@ -389,8 +344,6 @@ public class Principal extends javax.swing.JFrame {
                 C6MouseClicked(evt);
             }
         });
-        getContentPane().add(C6);
-        C6.setBounds(520, 180, 90, 80);
 
         C7.setBackground(new java.awt.Color(254, 173, 173));
         C7.setForeground(new java.awt.Color(254, 173, 173));
@@ -399,8 +352,6 @@ public class Principal extends javax.swing.JFrame {
                 C7MouseClicked(evt);
             }
         });
-        getContentPane().add(C7);
-        C7.setBounds(610, 180, 90, 80);
 
         C8.setBackground(new java.awt.Color(143, 55, 55));
         C8.setForeground(new java.awt.Color(143, 55, 55));
@@ -409,8 +360,6 @@ public class Principal extends javax.swing.JFrame {
                 C8MouseClicked(evt);
             }
         });
-        getContentPane().add(C8);
-        C8.setBounds(700, 180, 90, 80);
 
         D1.setBackground(new java.awt.Color(143, 55, 55));
         D1.setForeground(new java.awt.Color(143, 55, 55));
@@ -419,8 +368,6 @@ public class Principal extends javax.swing.JFrame {
                 D1MouseClicked(evt);
             }
         });
-        getContentPane().add(D1);
-        D1.setBounds(70, 260, 90, 80);
 
         D2.setBackground(new java.awt.Color(254, 173, 173));
         D2.setForeground(new java.awt.Color(254, 173, 173));
@@ -429,8 +376,6 @@ public class Principal extends javax.swing.JFrame {
                 D2MouseClicked(evt);
             }
         });
-        getContentPane().add(D2);
-        D2.setBounds(160, 260, 90, 80);
 
         D3.setBackground(new java.awt.Color(143, 55, 55));
         D3.setForeground(new java.awt.Color(143, 55, 55));
@@ -439,8 +384,6 @@ public class Principal extends javax.swing.JFrame {
                 D3MouseClicked(evt);
             }
         });
-        getContentPane().add(D3);
-        D3.setBounds(250, 260, 90, 80);
 
         D4.setBackground(new java.awt.Color(254, 173, 173));
         D4.setForeground(new java.awt.Color(254, 173, 173));
@@ -449,8 +392,6 @@ public class Principal extends javax.swing.JFrame {
                 D4MouseClicked(evt);
             }
         });
-        getContentPane().add(D4);
-        D4.setBounds(340, 260, 90, 80);
 
         D5.setBackground(new java.awt.Color(143, 55, 55));
         D5.setForeground(new java.awt.Color(143, 55, 55));
@@ -459,8 +400,6 @@ public class Principal extends javax.swing.JFrame {
                 D5MouseClicked(evt);
             }
         });
-        getContentPane().add(D5);
-        D5.setBounds(430, 260, 90, 80);
 
         D6.setBackground(new java.awt.Color(254, 173, 173));
         D6.setForeground(new java.awt.Color(254, 173, 173));
@@ -469,8 +408,6 @@ public class Principal extends javax.swing.JFrame {
                 D6MouseClicked(evt);
             }
         });
-        getContentPane().add(D6);
-        D6.setBounds(520, 260, 90, 80);
 
         D7.setBackground(new java.awt.Color(143, 55, 55));
         D7.setForeground(new java.awt.Color(143, 55, 55));
@@ -479,8 +416,6 @@ public class Principal extends javax.swing.JFrame {
                 D7MouseClicked(evt);
             }
         });
-        getContentPane().add(D7);
-        D7.setBounds(610, 260, 90, 80);
 
         D8.setBackground(new java.awt.Color(254, 173, 173));
         D8.setForeground(new java.awt.Color(254, 173, 173));
@@ -489,8 +424,6 @@ public class Principal extends javax.swing.JFrame {
                 D8MouseClicked(evt);
             }
         });
-        getContentPane().add(D8);
-        D8.setBounds(700, 260, 90, 80);
 
         E1.setBackground(new java.awt.Color(254, 173, 173));
         E1.setForeground(new java.awt.Color(254, 173, 173));
@@ -499,8 +432,6 @@ public class Principal extends javax.swing.JFrame {
                 E1MouseClicked(evt);
             }
         });
-        getContentPane().add(E1);
-        E1.setBounds(70, 340, 90, 80);
 
         E2.setBackground(new java.awt.Color(143, 55, 55));
         E2.setForeground(new java.awt.Color(143, 55, 55));
@@ -509,8 +440,6 @@ public class Principal extends javax.swing.JFrame {
                 E2MouseClicked(evt);
             }
         });
-        getContentPane().add(E2);
-        E2.setBounds(160, 340, 90, 80);
 
         E3.setBackground(new java.awt.Color(254, 173, 173));
         E3.setForeground(new java.awt.Color(254, 173, 173));
@@ -519,8 +448,6 @@ public class Principal extends javax.swing.JFrame {
                 E3MouseClicked(evt);
             }
         });
-        getContentPane().add(E3);
-        E3.setBounds(250, 340, 90, 80);
 
         E4.setBackground(new java.awt.Color(143, 55, 55));
         E4.setForeground(new java.awt.Color(143, 55, 55));
@@ -529,8 +456,6 @@ public class Principal extends javax.swing.JFrame {
                 E4MouseClicked(evt);
             }
         });
-        getContentPane().add(E4);
-        E4.setBounds(340, 340, 90, 80);
 
         E5.setBackground(new java.awt.Color(254, 173, 173));
         E5.setForeground(new java.awt.Color(254, 173, 173));
@@ -539,8 +464,6 @@ public class Principal extends javax.swing.JFrame {
                 E5MouseClicked(evt);
             }
         });
-        getContentPane().add(E5);
-        E5.setBounds(430, 340, 90, 80);
 
         E6.setBackground(new java.awt.Color(143, 55, 55));
         E6.setForeground(new java.awt.Color(143, 55, 55));
@@ -549,8 +472,6 @@ public class Principal extends javax.swing.JFrame {
                 E6MouseClicked(evt);
             }
         });
-        getContentPane().add(E6);
-        E6.setBounds(520, 340, 90, 80);
 
         E7.setBackground(new java.awt.Color(254, 173, 173));
         E7.setForeground(new java.awt.Color(254, 173, 173));
@@ -559,8 +480,6 @@ public class Principal extends javax.swing.JFrame {
                 E7MouseClicked(evt);
             }
         });
-        getContentPane().add(E7);
-        E7.setBounds(610, 340, 90, 80);
 
         E8.setBackground(new java.awt.Color(143, 55, 55));
         E8.setForeground(new java.awt.Color(143, 55, 55));
@@ -569,8 +488,6 @@ public class Principal extends javax.swing.JFrame {
                 E8MouseClicked(evt);
             }
         });
-        getContentPane().add(E8);
-        E8.setBounds(700, 340, 90, 80);
 
         F1.setBackground(new java.awt.Color(143, 55, 55));
         F1.setForeground(new java.awt.Color(143, 55, 55));
@@ -579,8 +496,6 @@ public class Principal extends javax.swing.JFrame {
                 F1MouseClicked(evt);
             }
         });
-        getContentPane().add(F1);
-        F1.setBounds(70, 420, 90, 80);
 
         F2.setBackground(new java.awt.Color(254, 173, 173));
         F2.setForeground(new java.awt.Color(254, 173, 173));
@@ -589,8 +504,6 @@ public class Principal extends javax.swing.JFrame {
                 F2MouseClicked(evt);
             }
         });
-        getContentPane().add(F2);
-        F2.setBounds(160, 420, 90, 80);
 
         F3.setBackground(new java.awt.Color(143, 55, 55));
         F3.setForeground(new java.awt.Color(143, 55, 55));
@@ -599,8 +512,6 @@ public class Principal extends javax.swing.JFrame {
                 F3MouseClicked(evt);
             }
         });
-        getContentPane().add(F3);
-        F3.setBounds(250, 420, 90, 80);
 
         F4.setBackground(new java.awt.Color(254, 173, 173));
         F4.setForeground(new java.awt.Color(254, 173, 173));
@@ -609,8 +520,6 @@ public class Principal extends javax.swing.JFrame {
                 F4MouseClicked(evt);
             }
         });
-        getContentPane().add(F4);
-        F4.setBounds(340, 420, 90, 80);
 
         F5.setBackground(new java.awt.Color(143, 55, 55));
         F5.setForeground(new java.awt.Color(143, 55, 55));
@@ -619,8 +528,6 @@ public class Principal extends javax.swing.JFrame {
                 F5MouseClicked(evt);
             }
         });
-        getContentPane().add(F5);
-        F5.setBounds(430, 420, 90, 80);
 
         F6.setBackground(new java.awt.Color(254, 173, 173));
         F6.setForeground(new java.awt.Color(254, 173, 173));
@@ -629,8 +536,6 @@ public class Principal extends javax.swing.JFrame {
                 F6MouseClicked(evt);
             }
         });
-        getContentPane().add(F6);
-        F6.setBounds(520, 420, 90, 80);
 
         F7.setBackground(new java.awt.Color(143, 55, 55));
         F7.setForeground(new java.awt.Color(143, 55, 55));
@@ -639,8 +544,6 @@ public class Principal extends javax.swing.JFrame {
                 F7MouseClicked(evt);
             }
         });
-        getContentPane().add(F7);
-        F7.setBounds(610, 420, 90, 80);
 
         F8.setBackground(new java.awt.Color(254, 173, 173));
         F8.setForeground(new java.awt.Color(254, 173, 173));
@@ -649,8 +552,6 @@ public class Principal extends javax.swing.JFrame {
                 F8MouseClicked(evt);
             }
         });
-        getContentPane().add(F8);
-        F8.setBounds(700, 420, 90, 80);
 
         G1.setBackground(new java.awt.Color(254, 173, 173));
         G1.setForeground(new java.awt.Color(254, 173, 173));
@@ -659,8 +560,6 @@ public class Principal extends javax.swing.JFrame {
                 G1MouseClicked(evt);
             }
         });
-        getContentPane().add(G1);
-        G1.setBounds(70, 500, 90, 80);
 
         G2.setBackground(new java.awt.Color(143, 55, 55));
         G2.setForeground(new java.awt.Color(143, 55, 55));
@@ -669,8 +568,6 @@ public class Principal extends javax.swing.JFrame {
                 G2MouseClicked(evt);
             }
         });
-        getContentPane().add(G2);
-        G2.setBounds(160, 500, 90, 80);
 
         G3.setBackground(new java.awt.Color(254, 173, 173));
         G3.setForeground(new java.awt.Color(254, 173, 173));
@@ -679,8 +576,6 @@ public class Principal extends javax.swing.JFrame {
                 G3MouseClicked(evt);
             }
         });
-        getContentPane().add(G3);
-        G3.setBounds(250, 500, 90, 80);
 
         G4.setBackground(new java.awt.Color(143, 55, 55));
         G4.setForeground(new java.awt.Color(143, 55, 55));
@@ -689,8 +584,6 @@ public class Principal extends javax.swing.JFrame {
                 G4MouseClicked(evt);
             }
         });
-        getContentPane().add(G4);
-        G4.setBounds(340, 500, 90, 80);
 
         G5.setBackground(new java.awt.Color(254, 173, 173));
         G5.setForeground(new java.awt.Color(254, 173, 173));
@@ -699,8 +592,6 @@ public class Principal extends javax.swing.JFrame {
                 G5MouseClicked(evt);
             }
         });
-        getContentPane().add(G5);
-        G5.setBounds(430, 500, 90, 80);
 
         G6.setBackground(new java.awt.Color(143, 55, 55));
         G6.setForeground(new java.awt.Color(143, 55, 55));
@@ -709,8 +600,6 @@ public class Principal extends javax.swing.JFrame {
                 G6MouseClicked(evt);
             }
         });
-        getContentPane().add(G6);
-        G6.setBounds(520, 500, 90, 80);
 
         G7.setBackground(new java.awt.Color(254, 173, 173));
         G7.setForeground(new java.awt.Color(254, 173, 173));
@@ -719,8 +608,6 @@ public class Principal extends javax.swing.JFrame {
                 G7MouseClicked(evt);
             }
         });
-        getContentPane().add(G7);
-        G7.setBounds(610, 500, 90, 80);
 
         G8.setBackground(new java.awt.Color(143, 55, 55));
         G8.setForeground(new java.awt.Color(143, 55, 55));
@@ -729,8 +616,6 @@ public class Principal extends javax.swing.JFrame {
                 G8MouseClicked(evt);
             }
         });
-        getContentPane().add(G8);
-        G8.setBounds(700, 500, 90, 80);
 
         H1.setBackground(new java.awt.Color(143, 55, 55));
         H1.setForeground(new java.awt.Color(143, 55, 55));
@@ -739,8 +624,6 @@ public class Principal extends javax.swing.JFrame {
                 H1MouseClicked(evt);
             }
         });
-        getContentPane().add(H1);
-        H1.setBounds(70, 580, 90, 80);
 
         H2.setBackground(new java.awt.Color(254, 173, 173));
         H2.setForeground(new java.awt.Color(254, 173, 173));
@@ -749,8 +632,6 @@ public class Principal extends javax.swing.JFrame {
                 H2MouseClicked(evt);
             }
         });
-        getContentPane().add(H2);
-        H2.setBounds(160, 580, 90, 80);
 
         H3.setBackground(new java.awt.Color(143, 55, 55));
         H3.setForeground(new java.awt.Color(143, 55, 55));
@@ -759,8 +640,6 @@ public class Principal extends javax.swing.JFrame {
                 H3MouseClicked(evt);
             }
         });
-        getContentPane().add(H3);
-        H3.setBounds(250, 580, 90, 80);
 
         H4.setBackground(new java.awt.Color(254, 173, 173));
         H4.setForeground(new java.awt.Color(254, 173, 173));
@@ -769,8 +648,6 @@ public class Principal extends javax.swing.JFrame {
                 H4MouseClicked(evt);
             }
         });
-        getContentPane().add(H4);
-        H4.setBounds(340, 580, 90, 80);
 
         H5.setBackground(new java.awt.Color(143, 55, 55));
         H5.setForeground(new java.awt.Color(143, 55, 55));
@@ -779,8 +656,6 @@ public class Principal extends javax.swing.JFrame {
                 H5MouseClicked(evt);
             }
         });
-        getContentPane().add(H5);
-        H5.setBounds(430, 580, 90, 80);
 
         H6.setBackground(new java.awt.Color(254, 173, 173));
         H6.setForeground(new java.awt.Color(254, 173, 173));
@@ -789,8 +664,6 @@ public class Principal extends javax.swing.JFrame {
                 H6MouseClicked(evt);
             }
         });
-        getContentPane().add(H6);
-        H6.setBounds(520, 580, 90, 80);
 
         H7.setBackground(new java.awt.Color(143, 55, 55));
         H7.setForeground(new java.awt.Color(143, 55, 55));
@@ -799,8 +672,6 @@ public class Principal extends javax.swing.JFrame {
                 H7MouseClicked(evt);
             }
         });
-        getContentPane().add(H7);
-        H7.setBounds(610, 580, 90, 80);
 
         H8.setBackground(new java.awt.Color(254, 173, 173));
         H8.setForeground(new java.awt.Color(254, 173, 173));
@@ -809,12 +680,8 @@ public class Principal extends javax.swing.JFrame {
                 H8MouseClicked(evt);
             }
         });
-        getContentPane().add(H8);
-        H8.setBounds(700, 580, 90, 80);
 
         jLabel1.setText("Evaluaciones");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(860, 138, 90, 17);
 
         btn_ComerCaballo.setText("Comer Caballo");
         btn_ComerCaballo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -822,8 +689,6 @@ public class Principal extends javax.swing.JFrame {
                 btn_ComerCaballoMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_ComerCaballo);
-        btn_ComerCaballo.setBounds(860, 188, 120, 29);
 
         btn_coronarPeon.setText("Coronar Peon");
         btn_coronarPeon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -836,8 +701,6 @@ public class Principal extends javax.swing.JFrame {
                 btn_coronarPeonActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_coronarPeon);
-        btn_coronarPeon.setBounds(860, 249, 120, 29);
 
         btn_ponerHacke.setText("Poner en hacke");
         btn_ponerHacke.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -845,88 +708,379 @@ public class Principal extends javax.swing.JFrame {
                 btn_ponerHackeMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_ponerHacke);
-        btn_ponerHacke.setBounds(860, 309, 120, 29);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("1");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 50, 17, 30);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setText("6");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 450, 17, 30);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel4.setText("4");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 290, 17, 30);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setText("3");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 210, 17, 30);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel6.setText("2");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(30, 130, 17, 30);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel7.setText("7");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(30, 530, 17, 30);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel8.setText("B");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(200, 670, 20, 29);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel9.setText("5");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(30, 360, 17, 30);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel10.setText("8");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(30, 610, 17, 29);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel11.setText("C");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(290, 670, 20, 29);
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel12.setText("D");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(380, 670, 20, 29);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel13.setText("E");
-        getContentPane().add(jLabel13);
-        jLabel13.setBounds(470, 670, 20, 29);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel14.setText("F");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(560, 670, 20, 29);
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel15.setText("G");
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(650, 670, 20, 29);
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel16.setText("H");
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(740, 670, 20, 29);
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel17.setText("A");
-        getContentPane().add(jLabel17);
-        jLabel17.setBounds(100, 670, 20, 29);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_ComerCaballo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_coronarPeon, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_ponerHacke)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel9)
+                .addGap(23, 23, 23)
+                .addComponent(E1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(E8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel3)
+                .addGap(23, 23, 23)
+                .addComponent(F1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(F8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel7)
+                .addGap(23, 23, 23)
+                .addComponent(G1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(G8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel10)
+                .addGap(23, 23, 23)
+                .addComponent(H1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(H8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel12)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel15)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel16))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(A8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(B8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(8, 8, 8)
+                                .addComponent(jRadioButton2)
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel1)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(D8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(btn_ComerCaballo)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_coronarPeon)
+                        .addGap(29, 29, 29)
+                        .addComponent(btn_ponerHacke)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(E1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(F1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(G1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel10))
+                    .addComponent(H1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1404,7 +1558,7 @@ public class Principal extends javax.swing.JFrame {
         int beforeEvaluation = countHorses(tablero);
         int afterEvaluation = 0;
         boolean continuePlaying = true;
-        nuevo = new mapa(tablero, new Movimiento("h",0, 0, 0, 0));
+        nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
         mapeo = new MyTree(new TreeNode(nuevo));
 
         while (continuePlaying) {
@@ -1439,7 +1593,7 @@ public class Principal extends javax.swing.JFrame {
         nodos = new Lista();
         TreeNode temporal = new TreeNode();
         boolean continuePlaying = true;
-        nuevo = new mapa(tablero, new Movimiento("h",0, 0, 0, 0));
+        nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
         mapeo = new MyTree(new TreeNode(nuevo));
 
         while (continuePlaying) {
@@ -1537,14 +1691,14 @@ public class Principal extends javax.swing.JFrame {
         nodos = new Lista();
         TreeNode temporal = new TreeNode();
         boolean continuePlaying = true;
-        nuevo = new mapa(tablero, new Movimiento("h",0, 0, 0, 0));
+        nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
         mapeo = new MyTree(new TreeNode(nuevo));
 
         while (continuePlaying) {
             mapeo.preorder(null, nodos);
             for (int i = 0; i < nodos.getSize(); i++) {
                 temporal = (TreeNode) nodos.get(i);
-                if (isInHacke(((mapa)temporal.getValue()).getTablero())) {
+                if (isInHacke(((mapa) temporal.getValue()).getTablero())) {
                     continuePlaying = false;
                     nodoGuardado = temporal;
                     mostrarMovimientos(nodoGuardado.getPath());
@@ -1600,8 +1754,47 @@ public class Principal extends javax.swing.JFrame {
     }
 
     public void mostrarMovimientos(Lista list) {
+        ExecutorService exec = Executors.newFixedThreadPool(list.getSize());
         for (int i = list.getSize() - 1; i >= 0; i--) {
-            System.out.println(((mapa) ((TreeNode) list.get(i)).getValue()).getJugada());
+            Runnable correr = new Hilo(tablero,  ((mapa)(((TreeNode)list.get(i)).getValue())).getJugada());
+            exec.execute(correr);
+            for (int x = 0; x < 8; x++) {
+                for (int j = 0; j < 8; j++) {
+                    posiciones_para_mostrar(x,j);
+                    if(tablero[x][j] instanceof Caballo){
+                        if(tablero[x][j].esblanca){
+                            this.jRadioButton1.setSelected(true);
+                        }else{
+                            this.jRadioButton2.setSelected(true);
+                        }
+                        mover(0);
+                    }
+                    if(tablero[x][j] instanceof Rey){
+                         if(tablero[x][j].esblanca){
+                            this.jRadioButton1.setSelected(true);
+                        }else{
+                            this.jRadioButton2.setSelected(true);
+                        }
+                        mover(1);
+                    }
+                    if(tablero[x][j] instanceof Peon){
+                         if(tablero[x][j].esblanca){
+                            this.jRadioButton1.setSelected(true);
+                        }else{
+                            this.jRadioButton2.setSelected(true);
+                        }
+                        mover(2);
+                    }
+                    if(tablero[x][j] instanceof vacia){
+                         if(tablero[x][j].esblanca){
+                            this.jRadioButton1.setSelected(true);
+                        }else{
+                            this.jRadioButton2.setSelected(true);
+                        }
+                        mover(3);
+                    }
+                }
+            }
         }
     }
 
@@ -1616,6 +1809,9 @@ public class Principal extends javax.swing.JFrame {
             if (num == 2) {
                 boton_universal.setIcon(new ImageIcon("./peon.negro.png"));
             }
+            if (num == 3) {
+                boton_universal.setIcon(null);
+            }
         } else {
             if (num == 0) {
                 boton_universal.setIcon(new ImageIcon("./caballo.blanco.png"));
@@ -1626,9 +1822,13 @@ public class Principal extends javax.swing.JFrame {
             if (num == 2) {
                 boton_universal.setIcon(new ImageIcon("./peon.blanco.png"));
             }
+            if (num == 3) {
+                boton_universal.setIcon(null);
+            }
         }
 
     }
+    
 
     void menu(boolean click_izquierdo, Component comp, int x, int y) {
         if (click_izquierdo) {
@@ -1695,7 +1895,217 @@ public class Principal extends javax.swing.JFrame {
             return -1;
         }
     }
-
+    void posiciones_para_mostrar(int x, int y){
+        if(x==0){
+            if(y==0){
+                boton_universal=A1;
+            }
+            if(y==1){
+                boton_universal=A2;
+            }
+            if(y==2){
+                boton_universal=A3;
+            }
+            if(y==3){
+                boton_universal=A4;
+            }
+            if(y==4){
+                boton_universal=A5;
+            }
+            if(y==5){
+                boton_universal=A6;
+            }
+            if(y==6){
+                boton_universal=A7;
+            }
+            if(y==7){
+                boton_universal=A8;
+            }
+        }
+        if(x==1){
+            if(y==0){
+                boton_universal=B1;
+            }
+            if(y==1){
+                boton_universal=B2;
+            }
+            if(y==2){
+                boton_universal=B3;
+            }
+            if(y==3){
+                boton_universal=B4;
+            }
+            if(y==4){
+                boton_universal=B5;
+            }
+            if(y==5){
+                boton_universal=B6;
+            }
+            if(y==6){
+                boton_universal=B7;
+            }
+            if(y==7){
+                boton_universal=B8;
+            }
+        }
+        if(x==2){
+            if(y==0){
+                boton_universal=C1;
+            }
+            if(y==1){
+                boton_universal=C2;
+            }
+            if(y==2){
+                boton_universal=C3;
+            }
+            if(y==3){
+                boton_universal=C4;
+            }
+            if(y==4){
+                boton_universal=C5;
+            }
+            if(y==5){
+                boton_universal=C6;
+            }
+            if(y==6){
+                boton_universal=C7;
+            }
+            if(y==7){
+                boton_universal=C8;
+            }
+        }
+        if(x==3){
+            if(y==0){
+                boton_universal=D1;
+            }
+            if(y==1){
+                boton_universal=D2;
+            }
+            if(y==2){
+                boton_universal=D3;
+            }
+            if(y==3){
+                boton_universal=D4;
+            }
+            if(y==4){
+                boton_universal=D5;
+            }
+            if(y==5){
+                boton_universal=D6;
+            }
+            if(y==6){
+                boton_universal=D7;
+            }
+            if(y==7){
+                boton_universal=D8;
+            }
+        }
+        if(x==4){
+            if(y==0){
+                boton_universal=E1;
+            }
+            if(y==1){
+                boton_universal=E2;
+            }
+            if(y==2){
+                boton_universal=E3;
+            }
+            if(y==3){
+                boton_universal=E4;
+            }
+            if(y==4){
+                boton_universal=E5;
+            }
+            if(y==5){
+                boton_universal=E6;
+            }
+            if(y==6){
+                boton_universal=E7;
+            }
+            if(y==7){
+                boton_universal=E8;
+            }
+        }
+        if(x==5){
+            if(y==0){
+                boton_universal=F1;
+            }
+            if(y==1){
+                boton_universal=F2;
+            }
+            if(y==2){
+                boton_universal=F3;
+            }
+            if(y==3){
+                boton_universal=F4;
+            }
+            if(y==4){
+                boton_universal=F5;
+            }
+            if(y==5){
+                boton_universal=F6;
+            }
+            if(y==6){
+                boton_universal=F7;
+            }
+            if(y==7){
+                boton_universal=F8;
+            }
+        }
+        if(x==6){
+            if(y==0){
+                boton_universal=G1;
+            }
+            if(y==1){
+                boton_universal=G2;
+            }
+            if(y==2){
+                boton_universal=G3;
+            }
+            if(y==3){
+                boton_universal=G4;
+            }
+            if(y==4){
+                boton_universal=G5;
+            }
+            if(y==5){
+                boton_universal=G6;
+            }
+            if(y==6){
+                boton_universal=G7;
+            }
+            if(y==7){
+                boton_universal=G8;
+            }
+        }
+        if(x==7){
+            if(y==0){
+                boton_universal=H1;
+            }
+            if(y==1){
+                boton_universal=H2;
+            }
+            if(y==2){
+                boton_universal=H3;
+            }
+            if(y==3){
+                boton_universal=H4;
+            }
+            if(y==4){
+                boton_universal=H5;
+            }
+            if(y==5){
+                boton_universal=H6;
+            }
+            if(y==6){
+                boton_universal=H7;
+            }
+            if(y==7){
+                boton_universal=H8;
+            }
+        }
+        
+    }
     boolean metodo_validacion_blancas(Pieza pieza) {
         int contador_caballo = 0;
         int contador_rey = 0;
@@ -1758,8 +2168,8 @@ public class Principal extends javax.swing.JFrame {
                                     if (checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k, l) == 1
                                             || checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k,
                                                     l) == 2) {
-                                        nuevo = new mapa(((mapa) board.getValue()).getTablero(), 
-                                                new Movimiento(((mapa) board.getValue()).getTablero()[x1][y1],x1, y1, k, l));
+                                        nuevo = new mapa(((mapa) board.getValue()).getTablero(),
+                                                new Movimiento(((mapa) board.getValue()).getTablero()[x1][y1], x1, y1, k, l));
                                         moverCasilla(nuevo.getTablero(), x1, y1, k, l);
                                         nodoUniversal.addSon(nuevo);
                                     }
@@ -1782,8 +2192,8 @@ public class Principal extends javax.swing.JFrame {
                                     if (checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k, l) == 1
                                             || checkNextSquare(((mapa) board.getValue()).getTablero(), turno, k,
                                                     l) == 2) {
-                                        nuevo = new mapa(((mapa) board.getValue()).getTablero(), 
-                                                new Movimiento(((mapa) board.getValue()).getTablero()[x1][y1],x1, y1, k, l));
+                                        nuevo = new mapa(((mapa) board.getValue()).getTablero(),
+                                                new Movimiento(((mapa) board.getValue()).getTablero()[x1][y1], x1, y1, k, l));
                                         moverCasilla(nuevo.getTablero(), x1, y1, k, l);
                                         nodoUniversal.addSon(nuevo);
                                     }
@@ -1914,7 +2324,6 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         }
-
         return retorno;
     }
 
