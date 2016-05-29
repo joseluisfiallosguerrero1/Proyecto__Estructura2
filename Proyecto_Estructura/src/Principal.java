@@ -18,11 +18,7 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                this.tablero[i][j] = new vacia();
-            }
-        }
+        this.limpiarTablero();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -1565,7 +1561,6 @@ public class Principal extends javax.swing.JFrame {
             mapeo.preorder(null, nodos);
             for (int i = 0; i < nodos.getSize(); i++) {
                 temporal = (TreeNode) nodos.get(i);
-                System.out.println(temporal.getValue().getClass().toString());
                 afterEvaluation = countHorses(((mapa) (temporal.getValue())).getTablero());
                 if (beforeEvaluation != afterEvaluation) {
                     continuePlaying = false;
@@ -1582,7 +1577,7 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("turno " + turno);
         }
         JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-
+        limpiarTablero();
     }//GEN-LAST:event_btn_ComerCaballoMouseClicked
 
     private void btn_coronarPeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_coronarPeonActionPerformed
@@ -1615,6 +1610,7 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("turno " + turno);
         }
         JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
+        limpiarTablero();
     }//GEN-LAST:event_btn_coronarPeonMouseClicked
 
     private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
@@ -1714,7 +1710,7 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("turno " + turno);
         }
         JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-
+        limpiarTablero();
     }//GEN-LAST:event_btn_ponerHackeMouseClicked
 
     /**
@@ -1753,48 +1749,62 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+    public void limpiarTablero() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                this.posiciones_para_mostrar(i, j);
+                mover(3);
+                this.tablero[i][j] = new vacia();
+            }
+        }
+        blancos = new Pieza[5];
+        negras = new Pieza[5];
+        contador_blancas = 0;
+        contador_negras = 0;
+    }
+
     public void mostrarMovimientos(Lista list) {
-        ExecutorService exec = Executors.newFixedThreadPool(list.getSize());
+        Hilo correr = new Hilo();
+
         for (int i = list.getSize() - 1; i >= 0; i--) {
-            Runnable correr = new Hilo(tablero,  ((mapa)(((TreeNode)list.get(i)).getValue())).getJugada());
-            exec.execute(correr);
             for (int x = 0; x < 8; x++) {
                 for (int j = 0; j < 8; j++) {
-                    posiciones_para_mostrar(x,j);
-                    if(tablero[x][j] instanceof Caballo){
-                        if(tablero[x][j].esblanca){
+                    this.posiciones_para_mostrar(x, j);
+                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Caballo) {
+                        if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
-                        }else{
+                        } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        mover(0);
+                        correr.run(this.boton_universal, this.getImage(0));
                     }
-                    if(tablero[x][j] instanceof Rey){
-                         if(tablero[x][j].esblanca){
+                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Rey) {
+                        if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
-                        }else{
+                        } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        mover(1);
+                        correr.run(this.boton_universal, this.getImage(1));
                     }
-                    if(tablero[x][j] instanceof Peon){
-                         if(tablero[x][j].esblanca){
+                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Peon) {
+                        if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
-                        }else{
+                        } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        mover(2);
+                        correr.run(this.boton_universal, this.getImage(2));;
                     }
-                    if(tablero[x][j] instanceof vacia){
-                         if(tablero[x][j].esblanca){
+                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof vacia) {
+                        if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
-                        }else{
+                        } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        mover(3);
+                        this.mover(3);
                     }
                 }
             }
+
         }
     }
 
@@ -1828,7 +1838,6 @@ public class Principal extends javax.swing.JFrame {
         }
 
     }
-    
 
     void menu(boolean click_izquierdo, Component comp, int x, int y) {
         if (click_izquierdo) {
@@ -1895,217 +1904,245 @@ public class Principal extends javax.swing.JFrame {
             return -1;
         }
     }
-    void posiciones_para_mostrar(int x, int y){
-        if(x==0){
-            if(y==0){
-                boton_universal=A1;
+
+    public ImageIcon getImage(int num) {
+        ImageIcon retorno = new ImageIcon();
+        if (this.jRadioButton1.isSelected() == false) {
+            if (num == 0) {
+                retorno = new ImageIcon("./caballo.negro.png");
             }
-            if(y==1){
-                boton_universal=A2;
+            if (num == 1) {
+                retorno = new ImageIcon("./rey.negra.png");
             }
-            if(y==2){
-                boton_universal=A3;
+            if (num == 2) {
+                retorno = new ImageIcon("./peon.negro.png");
             }
-            if(y==3){
-                boton_universal=A4;
+        } else {
+            if (num == 0) {
+                retorno = new ImageIcon("./caballo.blanco.png");
             }
-            if(y==4){
-                boton_universal=A5;
+            if (num == 1) {
+                retorno = new ImageIcon("./rey.blanco.png");
             }
-            if(y==5){
-                boton_universal=A6;
-            }
-            if(y==6){
-                boton_universal=A7;
-            }
-            if(y==7){
-                boton_universal=A8;
+            if (num == 2) {
+                retorno = new ImageIcon("./peon.blanco.png");
             }
         }
-        if(x==1){
-            if(y==0){
-                boton_universal=B1;
-            }
-            if(y==1){
-                boton_universal=B2;
-            }
-            if(y==2){
-                boton_universal=B3;
-            }
-            if(y==3){
-                boton_universal=B4;
-            }
-            if(y==4){
-                boton_universal=B5;
-            }
-            if(y==5){
-                boton_universal=B6;
-            }
-            if(y==6){
-                boton_universal=B7;
-            }
-            if(y==7){
-                boton_universal=B8;
-            }
-        }
-        if(x==2){
-            if(y==0){
-                boton_universal=C1;
-            }
-            if(y==1){
-                boton_universal=C2;
-            }
-            if(y==2){
-                boton_universal=C3;
-            }
-            if(y==3){
-                boton_universal=C4;
-            }
-            if(y==4){
-                boton_universal=C5;
-            }
-            if(y==5){
-                boton_universal=C6;
-            }
-            if(y==6){
-                boton_universal=C7;
-            }
-            if(y==7){
-                boton_universal=C8;
-            }
-        }
-        if(x==3){
-            if(y==0){
-                boton_universal=D1;
-            }
-            if(y==1){
-                boton_universal=D2;
-            }
-            if(y==2){
-                boton_universal=D3;
-            }
-            if(y==3){
-                boton_universal=D4;
-            }
-            if(y==4){
-                boton_universal=D5;
-            }
-            if(y==5){
-                boton_universal=D6;
-            }
-            if(y==6){
-                boton_universal=D7;
-            }
-            if(y==7){
-                boton_universal=D8;
-            }
-        }
-        if(x==4){
-            if(y==0){
-                boton_universal=E1;
-            }
-            if(y==1){
-                boton_universal=E2;
-            }
-            if(y==2){
-                boton_universal=E3;
-            }
-            if(y==3){
-                boton_universal=E4;
-            }
-            if(y==4){
-                boton_universal=E5;
-            }
-            if(y==5){
-                boton_universal=E6;
-            }
-            if(y==6){
-                boton_universal=E7;
-            }
-            if(y==7){
-                boton_universal=E8;
-            }
-        }
-        if(x==5){
-            if(y==0){
-                boton_universal=F1;
-            }
-            if(y==1){
-                boton_universal=F2;
-            }
-            if(y==2){
-                boton_universal=F3;
-            }
-            if(y==3){
-                boton_universal=F4;
-            }
-            if(y==4){
-                boton_universal=F5;
-            }
-            if(y==5){
-                boton_universal=F6;
-            }
-            if(y==6){
-                boton_universal=F7;
-            }
-            if(y==7){
-                boton_universal=F8;
-            }
-        }
-        if(x==6){
-            if(y==0){
-                boton_universal=G1;
-            }
-            if(y==1){
-                boton_universal=G2;
-            }
-            if(y==2){
-                boton_universal=G3;
-            }
-            if(y==3){
-                boton_universal=G4;
-            }
-            if(y==4){
-                boton_universal=G5;
-            }
-            if(y==5){
-                boton_universal=G6;
-            }
-            if(y==6){
-                boton_universal=G7;
-            }
-            if(y==7){
-                boton_universal=G8;
-            }
-        }
-        if(x==7){
-            if(y==0){
-                boton_universal=H1;
-            }
-            if(y==1){
-                boton_universal=H2;
-            }
-            if(y==2){
-                boton_universal=H3;
-            }
-            if(y==3){
-                boton_universal=H4;
-            }
-            if(y==4){
-                boton_universal=H5;
-            }
-            if(y==5){
-                boton_universal=H6;
-            }
-            if(y==6){
-                boton_universal=H7;
-            }
-            if(y==7){
-                boton_universal=H8;
-            }
-        }
-        
+        return retorno;
     }
+
+    void posiciones_para_mostrar(int x, int y) {
+        if (x == 0) {
+            if (y == 0) {
+                boton_universal = A1;
+            }
+            if (y == 1) {
+                boton_universal = A2;
+            }
+            if (y == 2) {
+                boton_universal = A3;
+            }
+            if (y == 3) {
+                boton_universal = A4;
+            }
+            if (y == 4) {
+                boton_universal = A5;
+            }
+            if (y == 5) {
+                boton_universal = A6;
+            }
+            if (y == 6) {
+                boton_universal = A7;
+            }
+            if (y == 7) {
+                boton_universal = A8;
+            }
+        }
+        if (x == 1) {
+            if (y == 0) {
+                boton_universal = B1;
+            }
+            if (y == 1) {
+                boton_universal = B2;
+            }
+            if (y == 2) {
+                boton_universal = B3;
+            }
+            if (y == 3) {
+                boton_universal = B4;
+            }
+            if (y == 4) {
+                boton_universal = B5;
+            }
+            if (y == 5) {
+                boton_universal = B6;
+            }
+            if (y == 6) {
+                boton_universal = B7;
+            }
+            if (y == 7) {
+                boton_universal = B8;
+            }
+        }
+        if (x == 2) {
+            if (y == 0) {
+                boton_universal = C1;
+            }
+            if (y == 1) {
+                boton_universal = C2;
+            }
+            if (y == 2) {
+                boton_universal = C3;
+            }
+            if (y == 3) {
+                boton_universal = C4;
+            }
+            if (y == 4) {
+                boton_universal = C5;
+            }
+            if (y == 5) {
+                boton_universal = C6;
+            }
+            if (y == 6) {
+                boton_universal = C7;
+            }
+            if (y == 7) {
+                boton_universal = C8;
+            }
+        }
+        if (x == 3) {
+            if (y == 0) {
+                boton_universal = D1;
+            }
+            if (y == 1) {
+                boton_universal = D2;
+            }
+            if (y == 2) {
+                boton_universal = D3;
+            }
+            if (y == 3) {
+                boton_universal = D4;
+            }
+            if (y == 4) {
+                boton_universal = D5;
+            }
+            if (y == 5) {
+                boton_universal = D6;
+            }
+            if (y == 6) {
+                boton_universal = D7;
+            }
+            if (y == 7) {
+                boton_universal = D8;
+            }
+        }
+        if (x == 4) {
+            if (y == 0) {
+                boton_universal = E1;
+            }
+            if (y == 1) {
+                boton_universal = E2;
+            }
+            if (y == 2) {
+                boton_universal = E3;
+            }
+            if (y == 3) {
+                boton_universal = E4;
+            }
+            if (y == 4) {
+                boton_universal = E5;
+            }
+            if (y == 5) {
+                boton_universal = E6;
+            }
+            if (y == 6) {
+                boton_universal = E7;
+            }
+            if (y == 7) {
+                boton_universal = E8;
+            }
+        }
+        if (x == 5) {
+            if (y == 0) {
+                boton_universal = F1;
+            }
+            if (y == 1) {
+                boton_universal = F2;
+            }
+            if (y == 2) {
+                boton_universal = F3;
+            }
+            if (y == 3) {
+                boton_universal = F4;
+            }
+            if (y == 4) {
+                boton_universal = F5;
+            }
+            if (y == 5) {
+                boton_universal = F6;
+            }
+            if (y == 6) {
+                boton_universal = F7;
+            }
+            if (y == 7) {
+                boton_universal = F8;
+            }
+        }
+        if (x == 6) {
+            if (y == 0) {
+                boton_universal = G1;
+            }
+            if (y == 1) {
+                boton_universal = G2;
+            }
+            if (y == 2) {
+                boton_universal = G3;
+            }
+            if (y == 3) {
+                boton_universal = G4;
+            }
+            if (y == 4) {
+                boton_universal = G5;
+            }
+            if (y == 5) {
+                boton_universal = G6;
+            }
+            if (y == 6) {
+                boton_universal = G7;
+            }
+            if (y == 7) {
+                boton_universal = G8;
+            }
+        }
+        if (x == 7) {
+            if (y == 0) {
+                boton_universal = H1;
+            }
+            if (y == 1) {
+                boton_universal = H2;
+            }
+            if (y == 2) {
+                boton_universal = H3;
+            }
+            if (y == 3) {
+                boton_universal = H4;
+            }
+            if (y == 4) {
+                boton_universal = H5;
+            }
+            if (y == 5) {
+                boton_universal = H6;
+            }
+            if (y == 6) {
+                boton_universal = H7;
+            }
+            if (y == 7) {
+                boton_universal = H8;
+            }
+        }
+
+    }
+
     boolean metodo_validacion_blancas(Pieza pieza) {
         int contador_caballo = 0;
         int contador_rey = 0;
@@ -2158,7 +2195,7 @@ public class Principal extends javax.swing.JFrame {
         if (turno == 1) {
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
-                    if (((mapa) board.getValue()).getTablero()[i][j].isEsblanca()) {
+                    if (turno == 1 && ((mapa) board.getValue()).getTablero()[i][j].isEsblanca()) {
                         x1 = i;
                         y1 = j;
                         for (int k = 0; k < 8; k++) {
@@ -2419,8 +2456,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
  javax.swing.JButton boton_universal = new javax.swing.JButton();
     Pieza[][] tablero = new Pieza[8][8];

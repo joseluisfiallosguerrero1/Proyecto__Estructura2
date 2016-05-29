@@ -95,7 +95,7 @@ public class TreeNode {
         
         nodo = this;
         
-        while(nodo.getParent() != null){
+        while(nodo.parent != null){
             retorno.push(nodo);
             nodo = nodo.getParent();
         }
