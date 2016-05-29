@@ -1584,15 +1584,14 @@ public class Principal extends javax.swing.JFrame {
             } else if (tablero[x2][y2].isEsblanca()) {
                 retorno = 3;
             }
-        } else {//si es negra
-            if (tablero[x2][y2] == null) {
+        } else//si es negra
+         if (tablero[x2][y2] == null) {
                 retorno = 1; //Si la siguiente casilla esta vacia
             } else if (tablero[x2][y2].isEsblanca()) {
                 retorno = 2;
             } else if (tablero[x2][y2].isEsblanca() == false) {
                 retorno = 3;
             }
-        }
         return retorno;
     }
 
