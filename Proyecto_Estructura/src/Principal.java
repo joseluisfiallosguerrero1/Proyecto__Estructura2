@@ -1776,25 +1776,34 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        correr.run(this.boton_universal, this.getImage(0));
-                    }
-                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Rey) {
+//                        mover(0);
+                         correr.run(this.boton_universal, this.getImage(0));
+                        JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
+                                "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
+                       
+                    }else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Rey) {
                         if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
+                        //mover(1);
                         correr.run(this.boton_universal, this.getImage(1));
-                    }
-                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Peon) {
+                        JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
+                                "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
+                        
+                    }else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Peon) {
                         if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        correr.run(this.boton_universal, this.getImage(2));;
-                    }
-                    if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof vacia) {
+                        //mover(2);
+                        correr.run(this.boton_universal, this.getImage(2));
+                        JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
+                                "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
+                        
+                    }else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof vacia) {
                         if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
                         } else {
