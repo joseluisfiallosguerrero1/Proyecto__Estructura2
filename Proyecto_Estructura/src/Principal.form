@@ -1332,7 +1332,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_ponerHacke">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Poner en hacke"/>
+        <Property name="text" type="java.lang.String" value="Poner en jaque"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_ponerHackeMouseClicked"/>

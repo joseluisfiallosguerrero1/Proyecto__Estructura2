@@ -55,9 +55,34 @@ public class Movimiento {
         this.y2 = y2;
     }
 
-    @Override
-    public String toString() {
-        return pieza.toString() + "x1: " + x1 + ", y1: " + y1 + " --->  x2: " + x2 + ", y2: " + y2;
+    public String cambiarY(int num){
+        String retorno = "";
+        if(num == 0){
+            retorno = "A";
+        }else if(num == 1){
+            retorno = "B";
+        }else if(num ==2){
+            retorno = "C";
+        }else if(num == 3){
+            retorno = "D";
+        }else if(num == 4){
+            retorno = "E";
+        }else if(num == 5){
+            retorno = "F";
+        }else if(num == 6){
+            retorno = "G";
+        }else if(num == 8){
+            retorno = "H";
+        }
+        return retorno;
     }
     
+    public int modificarX(int num){
+        return num+1;
+    }
+    @Override
+    public String toString() {
+        return pieza.toString() + cambiarY(y1) + " , " + modificarX(x1) + "----->" + cambiarY(y2) + " , " + modificarX(x2);
+    }
+        
 }

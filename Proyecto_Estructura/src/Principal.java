@@ -698,7 +698,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btn_ponerHacke.setText("Poner en hacke");
+        btn_ponerHacke.setText("Poner en jaque");
         btn_ponerHacke.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_ponerHackeMouseClicked(evt);
@@ -1549,35 +1549,39 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_H8MouseClicked
 
     private void btn_ComerCaballoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ComerCaballoMouseClicked
-        nodos = new Lista();
-        TreeNode temporal = new TreeNode();
-        int beforeEvaluation = countHorses(tablero);
-        int afterEvaluation = 0;
-        boolean continuePlaying = true;
-        nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
-        mapeo = new MyTree(new TreeNode(nuevo));
-
-        while (continuePlaying) {
-            mapeo.preorder(null, nodos);
-            for (int i = 0; i < nodos.getSize(); i++) {
-                temporal = (TreeNode) nodos.get(i);
-                afterEvaluation = countHorses(((mapa) (temporal.getValue())).getTablero());
-                if (beforeEvaluation != afterEvaluation) {
-                    continuePlaying = false;
-                    nodoGuardado = temporal;
-                    mostrarMovimientos(nodoGuardado.getPath());
-                    JOptionPane.showMessageDialog(this, "Ya se han comido un caballo", "ALERTA", JOptionPane.WARNING_MESSAGE);
-                    break;
-                }
-                this.simularPartida((TreeNode) nodos.get(i));
-            }
+        if (countKings(tablero) && verifyHorses(tablero)) {
             nodos = new Lista();
-            int before = this.turno;
-            turno = before == 1 ? 2 : 1;
-            System.out.println("turno " + turno);
+            TreeNode temporal = new TreeNode();
+            int beforeEvaluation = countHorses(tablero);
+            int afterEvaluation = 0;
+            boolean continuePlaying = true;
+            nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
+            mapeo = new MyTree(new TreeNode(nuevo));
+
+            while (continuePlaying) {
+                mapeo.preorder(null, nodos);
+                for (int i = 0; i < nodos.getSize(); i++) {
+                    temporal = (TreeNode) nodos.get(i);
+                    afterEvaluation = countHorses(((mapa) (temporal.getValue())).getTablero());
+                    if (beforeEvaluation != afterEvaluation) {
+                        continuePlaying = false;
+                        nodoGuardado = temporal;
+                        mostrarMovimientos(nodoGuardado.getPath());
+                        JOptionPane.showMessageDialog(this, "Ya se han comido un caballo", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    }
+                    this.simularPartida((TreeNode) nodos.get(i));
+                }
+                nodos = new Lista();
+                int before = this.turno;
+                turno = before == 1 ? 2 : 1;
+                System.out.println("turno " + turno);
+            }
+            JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiarTablero();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-        limpiarTablero();
     }//GEN-LAST:event_btn_ComerCaballoMouseClicked
 
     private void btn_coronarPeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_coronarPeonActionPerformed
@@ -1585,32 +1589,36 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_coronarPeonActionPerformed
 
     private void btn_coronarPeonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_coronarPeonMouseClicked
-        nodos = new Lista();
-        TreeNode temporal = new TreeNode();
-        boolean continuePlaying = true;
-        nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
-        mapeo = new MyTree(new TreeNode(nuevo));
-
-        while (continuePlaying) {
-            mapeo.preorder(null, nodos);
-            for (int i = 0; i < nodos.getSize(); i++) {
-                temporal = (TreeNode) nodos.get(i);
-                if (esreina(temporal)) {
-                    continuePlaying = false;
-                    nodoGuardado = temporal;
-                    mostrarMovimientos(nodoGuardado.getPath());
-                    JOptionPane.showMessageDialog(this, "Ya un peón se ha coronado", "ALERTA", JOptionPane.WARNING_MESSAGE);
-                    break;
-                }
-                this.simularPartida((TreeNode) nodos.get(i));
-            }
+        if (countKings(tablero) && contarPeones(tablero)) {
             nodos = new Lista();
-            int before = this.turno;
-            turno = before == 1 ? 2 : 1;
-            System.out.println("turno " + turno);
+            TreeNode temporal = new TreeNode();
+            boolean continuePlaying = true;
+            nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
+            mapeo = new MyTree(new TreeNode(nuevo));
+
+            while (continuePlaying) {
+                mapeo.preorder(null, nodos);
+                for (int i = 0; i < nodos.getSize(); i++) {
+                    temporal = (TreeNode) nodos.get(i);
+                    if (esreina(temporal)) {
+                        continuePlaying = false;
+                        nodoGuardado = temporal;
+                        mostrarMovimientos(nodoGuardado.getPath());
+                        JOptionPane.showMessageDialog(this, "Ya un peón se ha coronado", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    }
+                    this.simularPartida((TreeNode) nodos.get(i));
+                }
+                nodos = new Lista();
+                int before = this.turno;
+                turno = before == 1 ? 2 : 1;
+                System.out.println("turno " + turno);
+            }
+            JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiarTablero();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-        limpiarTablero();
     }//GEN-LAST:event_btn_coronarPeonMouseClicked
 
     private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
@@ -1684,33 +1692,37 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BorrarActionPerformed
 
     private void btn_ponerHackeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ponerHackeMouseClicked
-        nodos = new Lista();
-        TreeNode temporal = new TreeNode();
-        boolean continuePlaying = true;
-        nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
-        mapeo = new MyTree(new TreeNode(nuevo));
-
-        while (continuePlaying) {
-            mapeo.preorder(null, nodos);
-            for (int i = 0; i < nodos.getSize(); i++) {
-                temporal = (TreeNode) nodos.get(i);
-                if (isInHacke(((mapa) temporal.getValue()).getTablero())) {
-                    continuePlaying = false;
-                    nodoGuardado = temporal;
-                    mostrarMovimientos(nodoGuardado.getPath());
-                    JOptionPane.showMessageDialog(this, "Ya un rey esta en hacke", "ALERTA", JOptionPane.WARNING_MESSAGE);
-                    break;
-                }
-                System.out.println("llega");
-                this.simularPartida((TreeNode) nodos.get(i));
-            }
+        if (countKings(tablero)) {
             nodos = new Lista();
-            int before = this.turno;
-            turno = before == 1 ? 2 : 1;
-            System.out.println("turno " + turno);
+            TreeNode temporal = new TreeNode();
+            boolean continuePlaying = true;
+            nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
+            mapeo = new MyTree(new TreeNode(nuevo));
+
+            while (continuePlaying) {
+                mapeo.preorder(null, nodos);
+                for (int i = 0; i < nodos.getSize(); i++) {
+                    temporal = (TreeNode) nodos.get(i);
+                    if (isInHacke(((mapa) temporal.getValue()).getTablero())) {
+                        continuePlaying = false;
+                        nodoGuardado = temporal;
+                        mostrarMovimientos(nodoGuardado.getPath());
+                        JOptionPane.showMessageDialog(this, "Ya un rey esta en jacke", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    }
+                    System.out.println("llega");
+                    this.simularPartida((TreeNode) nodos.get(i));
+                }
+                nodos = new Lista();
+                int before = this.turno;
+                turno = before == 1 ? 2 : 1;
+                System.out.println("turno " + turno);
+            }
+            JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiarTablero();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-        limpiarTablero();
     }//GEN-LAST:event_btn_ponerHackeMouseClicked
 
     /**
@@ -1749,6 +1761,39 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+    public boolean contarPeones(Pieza[][] board) {
+        int contador = 0;
+        boolean retorno = false;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j] instanceof Peon) {
+                    if (board[i][j].isEsblanca()) {
+                        contador++;
+                    }
+                }
+            }
+        }
+        retorno = contador > 0 ? true : false;
+        return retorno;
+    }
+
+    public boolean verifyHorses(Pieza[][] board) {
+        int whites = 0;
+        boolean retorno = false;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j] instanceof Caballo) {
+                    if (board[i][j].isEsblanca() == false) {
+                        retorno = true;
+                    }
+                }
+            }
+        }
+        return retorno;
+    }
+
     public void limpiarTablero() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -1777,11 +1822,11 @@ public class Principal extends javax.swing.JFrame {
                             this.jRadioButton2.setSelected(true);
                         }
 //                        mover(0);
-                         correr.run(this.boton_universal, this.getImage(0));
+                        correr.run(this.boton_universal, this.getImage(0));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
-                       
-                    }else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Rey) {
+
+                    } else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Rey) {
                         if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
                         } else {
@@ -1791,8 +1836,8 @@ public class Principal extends javax.swing.JFrame {
                         correr.run(this.boton_universal, this.getImage(1));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
-                        
-                    }else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Peon) {
+
+                    } else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Peon) {
                         if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
                         } else {
@@ -1802,8 +1847,8 @@ public class Principal extends javax.swing.JFrame {
                         correr.run(this.boton_universal, this.getImage(2));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
-                        
-                    }else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof vacia) {
+
+                    } else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof vacia) {
                         if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j].esblanca) {
                             this.jRadioButton1.setSelected(true);
                         } else {
@@ -1912,6 +1957,22 @@ public class Principal extends javax.swing.JFrame {
         } else {
             return -1;
         }
+    }
+
+    public boolean countKings(Pieza[][] board) {
+        boolean retorno = false;
+        int contador = 0;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j] instanceof Rey) {
+                    contador++;
+                }
+            }
+        }
+
+        retorno = contador == 2 ? true : false;
+        return retorno;
     }
 
     public ImageIcon getImage(int num) {
@@ -2259,7 +2320,9 @@ public class Principal extends javax.swing.JFrame {
         for (int i = 0; i < 8; i++) {
             for (int k = 0; k < 8; k++) {
                 if (board[i][k] instanceof Caballo) {
-                    horses++;
+                    if (board[i][k].isEsblanca() == false) {
+                        horses++;
+                    }
                 }
             }
         }
@@ -2362,8 +2425,10 @@ public class Principal extends javax.swing.JFrame {
 
                     for (int k = 0; k < 8; k++) {
                         for (int l = 0; l < 8; l++) {
-                            if (board[k][l].isValidMovement(board, k, l, x1, y1, turno)) {
-                                retorno = true;
+                            if (board[x1][y1].isEsblanca() != board[k][l].isEsblanca()) {
+                                if (board[k][l].isValidMovement(board, k, l, x1, y1, turno)) {
+                                    retorno = true;
+                                }
                             }
                         }
                     }

@@ -20,7 +20,7 @@ public class Hilo extends Thread {
     
     public void run(JButton boton, ImageIcon imagen) {
         boton.setIcon(imagen);
-        this.esperarXsegundos(4);
+        this.esperarXsegundos(2);
         
     }
 
