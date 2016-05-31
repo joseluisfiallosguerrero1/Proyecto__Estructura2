@@ -1645,7 +1645,7 @@ public class Principal extends javax.swing.JFrame {
 
             while (continuePlaying) {
                 mapeo.preOrder(null, nodos);
-                
+
                 for (int i = 0; i < nodos.getSize(); i++) {
                     temporal = (TreeNode) nodos.get(i);
                     if (esreina(temporal)) {
@@ -1765,7 +1765,7 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("turno " + turno);
             }
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -1874,8 +1874,8 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                       mover(0);
-                        //correr.run(this.boton_universal, this.getImage(0));
+                        //mover(0);
+                        correr.run(this.boton_universal, this.getImage(0));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
@@ -1885,8 +1885,8 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        mover(1);
-                     //   correr.run(this.boton_universal, this.getImage(1));
+                        //mover(1);
+                           correr.run(this.boton_universal, this.getImage(1));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
@@ -1896,8 +1896,8 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        mover(2);
-                        //correr.run(this.boton_universal, this.getImage(2));
+                        //mover(2);
+                        correr.run(this.boton_universal, this.getImage(2));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
@@ -1913,7 +1913,7 @@ public class Principal extends javax.swing.JFrame {
             }
 
         }
-        
+
         this.ventana.pack();
         this.ventana.setModal(true);
         this.ventana.setLocationRelativeTo(this);
@@ -2313,7 +2313,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     public void simularPartida(TreeNode evaluando) {
-        realizarJugada(evaluando, turno);
+        try {
+            realizarJugada(evaluando, turno);
+        } catch (java.lang.StackOverflowError e) {
+            JOptionPane.showMessageDialog(this,"Memoria Insuficiente para realizar operación");
+        }
+
     }
 
     public void realizarJugada(TreeNode board, int turno) {

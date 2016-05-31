@@ -1,4 +1,5 @@
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /*
@@ -6,13 +7,13 @@ import javax.swing.JTextArea;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author manuel
  */
 public class MyTree {
-   TreeNode root;
+
+    TreeNode root;
 
     public MyTree() {
     }
@@ -25,17 +26,17 @@ public class MyTree {
         return root;
     }
 
-    
     public void preOrder(TreeNode nodo, Lista retorno) {
+        try {
          if (nodo == null) {
             nodo = root;
         }
 
         if (nodo.isParent()) {
-            preOrder( nodo.getLefterSon(), retorno);
+            preOrder(nodo.getLefterSon(), retorno);
         } else if (nodo.hasRightBrother()) {
             retorno.push(nodo);
-            preOrder(nodo.getRightBrother(),retorno);
+            preOrder(nodo.getRightBrother(), retorno);
         } else {
             retorno.push(nodo);
             while (nodo.hasRightBrother() == false && nodo != root) {
@@ -45,15 +46,19 @@ public class MyTree {
             }
 
             if (nodo != root) {
-                preOrder( nodo.getRightBrother(),retorno);
+                preOrder(nodo.getRightBrother(), retorno);
             }
+        }     
+        } catch (java.lang.StackOverflowError e) {
+            System.out.println("nada");
         }
-        
+       
+
     }
-    
-    public void recorrer(JTextArea area){
+
+    public void recorrer(JTextArea area) {
         area.setText("");
         root.recorrer(area);
     }
-    
+
 }
