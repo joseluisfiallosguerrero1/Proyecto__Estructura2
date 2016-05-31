@@ -1,3 +1,6 @@
+
+import javax.swing.JTextArea;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,16 +26,16 @@ public class MyTree {
     }
 
     
-    public void preorder(TreeNode nodo, Lista retorno) {
+    public void preOrder(TreeNode nodo, Lista retorno) {
          if (nodo == null) {
             nodo = root;
         }
 
         if (nodo.isParent()) {
-            preorder( nodo.getLefterSon(), retorno);
+            preOrder( nodo.getLefterSon(), retorno);
         } else if (nodo.hasRightBrother()) {
             retorno.push(nodo);
-            preorder(nodo.getRightBrother(),retorno);
+            preOrder(nodo.getRightBrother(),retorno);
         } else {
             retorno.push(nodo);
             while (nodo.hasRightBrother() == false && nodo != root) {
@@ -42,10 +45,15 @@ public class MyTree {
             }
 
             if (nodo != root) {
-                preorder( nodo.getRightBrother(),retorno);
+                preOrder( nodo.getRightBrother(),retorno);
             }
         }
         
+    }
+    
+    public void recorrer(JTextArea area){
+        area.setText("");
+        root.recorrer(area);
     }
     
 }

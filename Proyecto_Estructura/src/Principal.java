@@ -37,6 +37,11 @@ public class Principal extends javax.swing.JFrame {
         Rey = new javax.swing.JMenuItem();
         Peon = new javax.swing.JMenuItem();
         Borrar = new javax.swing.JMenuItem();
+        ventana = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_map = new javax.swing.JTextArea();
+        jLabel18 = new javax.swing.JLabel();
+        bt_menu = new javax.swing.JButton();
         A1 = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -155,6 +160,49 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPopupMenu1.add(Borrar);
+
+        ta_map.setColumns(20);
+        ta_map.setRows(5);
+        jScrollPane1.setViewportView(ta_map);
+
+        jLabel18.setText("Mapeo Completo");
+
+        bt_menu.setText("Menu Principal");
+        bt_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_menuMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ventanaLayout = new javax.swing.GroupLayout(ventana.getContentPane());
+        ventana.getContentPane().setLayout(ventanaLayout);
+        ventanaLayout.setHorizontalGroup(
+            ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLayout.createSequentialGroup()
+                .addGroup(ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaLayout.createSequentialGroup()
+                        .addGap(304, 304, 304)
+                        .addComponent(jLabel18)))
+                .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_menu)
+                .addGap(244, 244, 244))
+        );
+        ventanaLayout.setVerticalGroup(
+            ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_menu)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1555,11 +1603,11 @@ public class Principal extends javax.swing.JFrame {
             int beforeEvaluation = countHorses(tablero);
             int afterEvaluation = 0;
             boolean continuePlaying = true;
-            nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
+            nuevo = new mapa(tablero, new Movimiento(new vacia(), 0, 0, 0, 0));
             mapeo = new MyTree(new TreeNode(nuevo));
 
             while (continuePlaying) {
-                mapeo.preorder(null, nodos);
+                mapeo.preOrder(null, nodos);
                 for (int i = 0; i < nodos.getSize(); i++) {
                     temporal = (TreeNode) nodos.get(i);
                     afterEvaluation = countHorses(((mapa) (temporal.getValue())).getTablero());
@@ -1578,7 +1626,6 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("turno " + turno);
             }
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-            limpiarTablero();
         } else {
             JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -1593,11 +1640,12 @@ public class Principal extends javax.swing.JFrame {
             nodos = new Lista();
             TreeNode temporal = new TreeNode();
             boolean continuePlaying = true;
-            nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
+            nuevo = new mapa(tablero, new Movimiento(new vacia(), 0, 0, 0, 0));
             mapeo = new MyTree(new TreeNode(nuevo));
 
             while (continuePlaying) {
-                mapeo.preorder(null, nodos);
+                mapeo.preOrder(null, nodos);
+                
                 for (int i = 0; i < nodos.getSize(); i++) {
                     temporal = (TreeNode) nodos.get(i);
                     if (esreina(temporal)) {
@@ -1615,7 +1663,6 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("turno " + turno);
             }
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-            limpiarTablero();
         } else {
             JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -1696,11 +1743,11 @@ public class Principal extends javax.swing.JFrame {
             nodos = new Lista();
             TreeNode temporal = new TreeNode();
             boolean continuePlaying = true;
-            nuevo = new mapa(tablero, new Movimiento("h", 0, 0, 0, 0));
+            nuevo = new mapa(tablero, new Movimiento(new vacia(), 0, 0, 0, 0));
             mapeo = new MyTree(new TreeNode(nuevo));
 
             while (continuePlaying) {
-                mapeo.preorder(null, nodos);
+                mapeo.preOrder(null, nodos);
                 for (int i = 0; i < nodos.getSize(); i++) {
                     temporal = (TreeNode) nodos.get(i);
                     if (isInHacke(((mapa) temporal.getValue()).getTablero())) {
@@ -1710,7 +1757,6 @@ public class Principal extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Ya un rey esta en jacke", "ALERTA", JOptionPane.WARNING_MESSAGE);
                         break;
                     }
-                    System.out.println("llega");
                     this.simularPartida((TreeNode) nodos.get(i));
                 }
                 nodos = new Lista();
@@ -1719,11 +1765,17 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("turno " + turno);
             }
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
-            limpiarTablero();
+            
         } else {
             JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_ponerHackeMouseClicked
+
+    private void bt_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_menuMouseClicked
+        this.ta_map.setText("");
+        limpiarTablero();
+        this.ventana.setVisible(false);
+    }//GEN-LAST:event_bt_menuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1811,6 +1863,7 @@ public class Principal extends javax.swing.JFrame {
     public void mostrarMovimientos(Lista list) {
         Hilo correr = new Hilo();
 
+        mapeo.recorrer(this.ta_map);
         for (int i = list.getSize() - 1; i >= 0; i--) {
             for (int x = 0; x < 8; x++) {
                 for (int j = 0; j < 8; j++) {
@@ -1821,8 +1874,8 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-//                        mover(0);
-                        correr.run(this.boton_universal, this.getImage(0));
+                       mover(0);
+                        //correr.run(this.boton_universal, this.getImage(0));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
@@ -1832,8 +1885,8 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        //mover(1);
-                        correr.run(this.boton_universal, this.getImage(1));
+                        mover(1);
+                     //   correr.run(this.boton_universal, this.getImage(1));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
@@ -1843,8 +1896,8 @@ public class Principal extends javax.swing.JFrame {
                         } else {
                             this.jRadioButton2.setSelected(true);
                         }
-                        //mover(2);
-                        correr.run(this.boton_universal, this.getImage(2));
+                        mover(2);
+                        //correr.run(this.boton_universal, this.getImage(2));
                         JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
@@ -1860,6 +1913,11 @@ public class Principal extends javax.swing.JFrame {
             }
 
         }
+        
+        this.ventana.pack();
+        this.ventana.setModal(true);
+        this.ventana.setLocationRelativeTo(this);
+        this.ventana.setVisible(true);
     }
 
     void mover(int num) {
@@ -2404,11 +2462,6 @@ public class Principal extends javax.swing.JFrame {
                     }
 
                 }
-                if (tab[i][j] instanceof Peon) {
-                    if (!tab[i][j].isEsblanca() && i == 7) {
-                        return true;
-                    }
-                }
             }
         }
         return false;
@@ -2508,6 +2561,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton H8;
     private javax.swing.JMenuItem Peon;
     private javax.swing.JMenuItem Rey;
+    private javax.swing.JButton bt_menu;
     private javax.swing.JButton btn_ComerCaballo;
     private javax.swing.JButton btn_coronarPeon;
     private javax.swing.JButton btn_ponerHacke;
@@ -2521,6 +2575,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2532,6 +2587,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     public javax.swing.JRadioButton jRadioButton1;
     public javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea ta_map;
+    private javax.swing.JDialog ventana;
     // End of variables declaration//GEN-END:variables
  javax.swing.JButton boton_universal = new javax.swing.JButton();
     Pieza[][] tablero = new Pieza[8][8];

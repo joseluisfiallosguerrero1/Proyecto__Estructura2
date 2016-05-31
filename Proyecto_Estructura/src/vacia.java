@@ -18,4 +18,11 @@ public class vacia extends Pieza {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "Raiz: ";
+    }
+    
+    
+
 }

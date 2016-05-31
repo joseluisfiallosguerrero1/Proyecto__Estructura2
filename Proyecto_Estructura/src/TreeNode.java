@@ -1,3 +1,6 @@
+
+import javax.swing.JTextArea;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -80,25 +83,34 @@ public class TreeNode {
 
         if (this.getParent() != null) {
             position = this.getParent().getHijos().find(this);
-            if(this.getParent().getHijos().getSize() == 1){
+            if (this.getParent().getHijos().getSize() == 1) {
                 retorno = false;
-            }else if (this.getParent().getHijos().getSize() > position + 1) {
+            } else if (this.getParent().getHijos().getSize() > position + 1) {
                 retorno = true;
             }
         }
         return retorno;
     }
-    
-    public Lista getPath(){
+
+    public Lista getPath() {
         Lista retorno = new Lista();
         TreeNode nodo = new TreeNode();
-        
+
         nodo = this;
-        
-        while(nodo.parent != null){
+
+        while (nodo.parent != null) {
             retorno.push(nodo);
             nodo = nodo.getParent();
         }
         return retorno;
+    }
+
+    public void recorrer(JTextArea area) {
+        area.append( ((mapa) this.getValue()).getJugada().toString() + "\n");
+        if (this.isParent()) {
+            for (int i = 0; i < this.getHijos().getSize(); i++) {
+                ((TreeNode) this.getHijos().get(i)).recorrer(area);
+            }
+        }
     }
 }
