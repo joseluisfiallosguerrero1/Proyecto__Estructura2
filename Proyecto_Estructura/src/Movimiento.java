@@ -71,7 +71,7 @@ public class Movimiento {
             retorno = "F";
         }else if(num == 6){
             retorno = "G";
-        }else if(num == 8){
+        }else if(num == 7){
             retorno = "H";
         }
         return retorno;
