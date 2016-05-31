@@ -1754,7 +1754,7 @@ public class Principal extends javax.swing.JFrame {
                         continuePlaying = false;
                         nodoGuardado = temporal;
                         mostrarMovimientos(nodoGuardado.getPath());
-                        JOptionPane.showMessageDialog(this, "Ya un rey esta en jacke", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Ya un rey esta en jaque", "ALERTA", JOptionPane.WARNING_MESSAGE);
                         break;
                     }
                     this.simularPartida((TreeNode) nodos.get(i));
@@ -1876,7 +1876,7 @@ public class Principal extends javax.swing.JFrame {
                         }
                         //mover(0);
                         correr.run(this.boton_universal, this.getImage(0));
-                        JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
+                        JOptionPane.showMessageDialog(this, "Procesando Movimiento:" + "\n" + ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
                     } else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Rey) {
@@ -1887,7 +1887,7 @@ public class Principal extends javax.swing.JFrame {
                         }
                         //mover(1);
                            correr.run(this.boton_universal, this.getImage(1));
-                        JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
+                        JOptionPane.showMessageDialog(this, "Procesando Movimiento:" + "\n" + ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
                     } else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof Peon) {
@@ -1898,7 +1898,7 @@ public class Principal extends javax.swing.JFrame {
                         }
                         //mover(2);
                         correr.run(this.boton_universal, this.getImage(2));
-                        JOptionPane.showMessageDialog(this, ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
+                        JOptionPane.showMessageDialog(this, "Procesando Movimiento:" + "\n" + ((mapa) ((TreeNode) list.get(i)).getValue()).getJugada().toString(),
                                 "MOVIMIENTO", JOptionPane.WARNING_MESSAGE);
 
                     } else if (((mapa) ((TreeNode) list.get(i)).getValue()).getTablero()[x][j] instanceof vacia) {
