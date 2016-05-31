@@ -1627,7 +1627,7 @@ public class Principal extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Faltan piezas para completar la operacion", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_ComerCaballoMouseClicked
 
@@ -1664,7 +1664,7 @@ public class Principal extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Faltan piezas para completar la operacion", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_coronarPeonMouseClicked
 
@@ -1767,7 +1767,7 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Se termino el proceso", "", JOptionPane.INFORMATION_MESSAGE);
             
         } else {
-            JOptionPane.showMessageDialog(this, "Debe tener los dos reyes en su tablero", "", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Faltan piezas para completar la operacion", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_ponerHackeMouseClicked
 
